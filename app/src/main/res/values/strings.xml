@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Battle Dual</string>
+    <string name="app_name_uppercase">BATTLE DUAL</string>
+
 </resources>
