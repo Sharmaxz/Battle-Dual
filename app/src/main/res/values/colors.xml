@@ -4,9 +4,7 @@
     <color name="colorPrimaryDark">#3E2AB1</color>
     <color name="colorAccent">#FF0000</color>
 
-    <color name="colorGradientBackground_Top">#924DCE</color>
-    <color name="colorGradientBackground_Center">#8248d1</color>
-    <color name="colorGradientBackground_Bottom">#4F37DA</color>
+
 
 
 </resources>

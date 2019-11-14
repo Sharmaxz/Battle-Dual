@@ -5,6 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/layout"
         android:background="@drawable/gradient_background"
         tools:context=".MainActivity">
 
@@ -32,9 +33,10 @@
 
 
     <ImageView
-            android:layout_width="63dp"
-            android:layout_height="33dp"
-            android:scaleType="centerCrop"
+            android:id="@+id/arrow_up_main"
+            android:layout_width="43dp"
+            android:layout_height="21dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/arrow_up"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"
@@ -44,8 +46,61 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/txtAppName"
-            app:layout_constraintVertical_bias="0.935"/>
+            app:layout_constraintVertical_bias="0.951"/>
+
+    <ImageView
+            android:id="@+id/arrow_up_0"
+            android:layout_width="36dp"
+            android:layout_height="18dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/arrow_up"
+            android:alpha="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/arrow_up_main"
+    />
+
+    <ImageView
+            android:id="@+id/arrow_up_1"
+            android:layout_width="36dp"
+            android:layout_height="18dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/arrow_up"
+            android:alpha="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintHorizontal_bias="0.498" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/arrow_up_0"/>
+
+    <ImageView
+            android:id="@+id/arrow_up_2"
+            android:layout_width="36dp"
+            android:layout_height="18dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/arrow_up"
+            android:alpha="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtAppName"
+            app:layout_constraintHorizontal_bias="0.498" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/arrow_up_1" app:layout_constraintVertical_bias="1.0"/>
 
 
+    <View
+            android:id="@+id/viewRectangle"
+            android:layout_width="411dp"
+            android:layout_height="303dp"
+            android:background="@drawable/login_rectangle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintTop_toBottomOf="@+id/arrow_up_main" android:layout_marginTop="32dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
