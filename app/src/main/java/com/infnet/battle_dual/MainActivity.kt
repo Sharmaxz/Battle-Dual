@@ -11,6 +11,11 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private var metrics : DisplayMetrics? = null
 
     private var mainArrow : ImageView? = null
+    var down_threshold : Float? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,23 +36,40 @@ class MainActivity : AppCompatActivity() {
         //px= dp * (dpi/160)
         metrics = resources.displayMetrics
 
-
+        down_threshold = metrics?.heightPixels?.times(95)?.div(100)!!.toFloat()
+        mainArrow = findViewById(R.id.arrow_up_main)
         setContentView(R.layout.activity_initial)
-        arrowAnimation()
+        GlobalScope.launch {
+            update()
+        }
 
+        arrowAnimation()
+    }
+
+    suspend fun update() {
+        arrowGravity(mainArrow!!, down_threshold!!)
+
+        Thread.sleep(1)
+        GlobalScope.launch {
+            update()
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    suspend  fun arrowAnimation() {
+    fun arrowAnimation() {
         val view = findViewById<ConstraintLayout>(R.id.layout)
         mainArrow = findViewById(R.id.arrow_up_main)
 
-        val shakeAnim = AnimationUtils.loadAnimation(this, R.anim.arrow_short_shake)
+        val shakeAnim = AnimationUtils.loadAnimation(this, R.anim.arrow_short_shake )
 
 
         var yDown : Float? = null
         var y : Float? = null
         var hold = false
+        val up_threshold = metrics?.heightPixels?.times(40)?.div(100)!!.toFloat()
+        val down_threshold = metrics?.heightPixels?.times(95)?.div(100)!!.toFloat()
+        val velocity_threshold = 20f
+
         view.setOnTouchListener { _, motionEvent ->
             when(motionEvent.action) {
                 MotionEvent.ACTION_DOWN -> {
@@ -65,55 +88,49 @@ class MainActivity : AppCompatActivity() {
 
             }
             if (hold && yDown != null) {
-                swipe(mainArrow!!, y!!, yDown!!)
+                swipe(mainArrow!!, y!!, yDown!!, up_threshold, down_threshold, velocity_threshold)
             }
 
             true
         }
     }
 
-     fun swipe(mainArrow : ImageView, y : Float, yDown : Float) {
-         var diffY = yDown - y
-         val up_threshold = metrics?.heightPixels?.times(40)?.div(100)!!.toFloat()
-         val down_threshold = metrics?.heightPixels?.times(95)?.div(100)!!.toFloat()
-         val velocity_threshold = 80f
+     fun swipe(mainArrow : ImageView, y : Float, yDown : Float, up_threshold : Float,
+               down_threshold : Float, velocity_threshold : Float) {
 
-         if(diffY < 150f) {
+         var diffY = yDown - y
+         println(diffY)
+         if(diffY < velocity_threshold) {
              if (diffY >= velocity_threshold)
                  diffY = velocity_threshold
              else if (diffY <= velocity_threshold)
                  diffY = -velocity_threshold
          }
-         else {
-
-         }
-
-
 
          var move : Float = mainArrow.y - diffY
 
+         if(diffY < 0){
+
+         }
 
          if(move < up_threshold)
              move = up_threshold
          else if (move > down_threshold)
              move = down_threshold
 
-
          mainArrow.y = move
          //println("Arrow " + mainArrow.y.toString())
          //println(up_threshold.minus(mainArrow.y).div(up_threshold - down_threshold).times(100).toString())
          //mainArrow.alpha = up_threshold.minus(mainArrow.y).div(up_threshold - down_threshold)
-         println(mainArrow.y.toString())
 
-         println(mainArrow.y.toString())
      }
 
-    suspend fun arrowGravity(mainArrow : ImageView, threshold : Float) {
-        mainArrow.y += 0.2f
-        GlobalScope.launch {
-            if(mainArrow.y < threshold)
-                arrowGravity(mainArrow, threshold)
-        }
+    fun arrowGravity(mainArrow : ImageView, down_threshold : Float) {
+        var move = mainArrow.y + 2f
+
+        if(move < down_threshold)
+            mainArrow.y = move
+
     }
 
 }
