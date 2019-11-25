@@ -1,4 +1,4 @@
-package com.infnet.battle_dual
+package com.infnet.battle_dual.shared
 
 import android.annotation.SuppressLint
 import android.content.Context
