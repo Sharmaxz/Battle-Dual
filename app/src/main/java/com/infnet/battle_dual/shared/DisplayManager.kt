@@ -1,4 +1,4 @@
-package com.infnet.battle_dual
+package com.infnet.battle_dual.shared
 
 import android.content.Context
 import android.util.DisplayMetrics

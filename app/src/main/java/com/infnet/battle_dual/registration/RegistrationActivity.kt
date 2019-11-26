@@ -15,7 +15,7 @@ import com.infnet.battle_dual.shared.DisplayMessage
 import com.infnet.battle_dual.R
 
 
-@SuppressLint("Registered")
+@SuppressLint("Registration")
 class RegistrationActivity : AppCompatActivity() {
 
     private var displayMessage : DisplayMessage = DisplayMessage(this)

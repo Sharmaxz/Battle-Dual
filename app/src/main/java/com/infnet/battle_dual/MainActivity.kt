@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import com.infnet.battle_dual.registration.RegistrationActivity
+import com.infnet.battle_dual.shared.DisplayManager
 import com.infnet.battle_dual.shared.DisplayMessage
 import com.infnet.battle_dual.shared.SessionManager
 
