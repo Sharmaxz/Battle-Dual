@@ -10,7 +10,7 @@ import com.infnet.battle_dual.R
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class RegistrationArrowAnim(private val context : Context,
+class RegistrationArrowAnim(context : Context,
                             private val view : ConstraintLayout,
                             private val arrow : ImageView,
                             private val up_threshold : Float,
@@ -19,8 +19,15 @@ class RegistrationArrowAnim(private val context : Context,
     private var hold = false
     private var y : Float? = null
     private var yDown : Float? = null
+    private var yUp : Float? = null
 
-    private val shake = AnimationUtils.loadAnimation(context, R.anim.arrow_short_shake)
+    //Gravity Force
+    private val gravity : Float = 10f
+
+    private val shake = AnimationUtils.loadAnimation(context, R.anim.arrow_shake)
+    private val gravity_soft = AnimationUtils.loadAnimation(context, R.anim.arrow_gravity_soft)
+    private val gravity_normal = AnimationUtils.loadAnimation(context, R.anim.arrow_gravity_normal)
+    //private val gravity_heavy = AnimationUtils.loadAnimation(context, R.anim.arrow_gravity_heavy)
 
     init {
         listener()
@@ -28,7 +35,9 @@ class RegistrationArrowAnim(private val context : Context,
     }
 
     private fun update () {
-        gravity()
+        if(!hold)
+            gravity()
+
         Thread.sleep(1)
         GlobalScope.launch {
             update()
@@ -46,6 +55,7 @@ class RegistrationArrowAnim(private val context : Context,
                 }
                 MotionEvent.ACTION_UP -> {
                     hold = false
+                    yUp = event.y
                     yDown  = null
                     y = null
                 }
@@ -56,7 +66,7 @@ class RegistrationArrowAnim(private val context : Context,
 
             }
 
-             if (hold && yDown != null)
+             if (yDown != null && hold)
                 move()
 
            true
@@ -78,9 +88,21 @@ class RegistrationArrowAnim(private val context : Context,
     }
 
     private fun gravity() {
-        val move = arrow.y + 10f
+        val move = arrow.y + gravity
 
-        if(move < down_threshold)
+        if(move > gravity && move < down_threshold){
             arrow.y = move
+        }
+        else {
+            arrow.y = down_threshold
+            if (yUp != null &&  arrow.y == down_threshold) {
+                println(down_threshold.minus(yUp!!))
+                when(down_threshold.minus(yUp!!)) {
+                    in 0f .. 500f  -> arrow.startAnimation(gravity_soft)
+                    in 500f .. 1000f  -> arrow.startAnimation(gravity_normal)
+                }
+                yUp = null
+            }
+        }
     }
 }
