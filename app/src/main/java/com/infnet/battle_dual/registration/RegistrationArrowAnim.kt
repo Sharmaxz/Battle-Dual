@@ -13,6 +13,9 @@ import kotlinx.coroutines.launch
 class RegistrationArrowAnim(context : Context,
                             private val view : ConstraintLayout,
                             private val arrow : ImageView,
+                            private val arrow0 : ImageView,
+                            private val arrow1 : ImageView,
+                            private val arrow2 : ImageView,
                             private val up_threshold : Float,
                             private val down_threshold : Float) {
 
@@ -25,18 +28,28 @@ class RegistrationArrowAnim(context : Context,
     private val gravity : Float = 10f
 
     private val shake = AnimationUtils.loadAnimation(context, R.anim.arrow_shake)
+    private val blink = AnimationUtils.loadAnimation(context, R.anim.arrow_blink)
+    private val blink1 = AnimationUtils.loadAnimation(context, R.anim.arrow_blink1)
+    private val blink2 = AnimationUtils.loadAnimation(context, R.anim.arrow_blink2)
     private val gravity_soft = AnimationUtils.loadAnimation(context, R.anim.arrow_gravity_soft)
     private val gravity_normal = AnimationUtils.loadAnimation(context, R.anim.arrow_gravity_normal)
     //private val gravity_heavy = AnimationUtils.loadAnimation(context, R.anim.arrow_gravity_heavy)
 
     init {
+        start()
         listener()
+        slide()
         update()
     }
+
+    private fun start() {
+    }
+
 
     private fun update () {
         if(!hold)
             gravity()
+
 
         Thread.sleep(1)
         GlobalScope.launch {
@@ -76,7 +89,6 @@ class RegistrationArrowAnim(context : Context,
 
     private fun move () {
         val diffY = yDown!!.minus(y!!)
-
         var move : Float = down_threshold.minus(diffY)
 
         if(move < up_threshold)
@@ -90,19 +102,30 @@ class RegistrationArrowAnim(context : Context,
     private fun gravity() {
         val move = arrow.y + gravity
 
-        if(move > gravity && move < down_threshold){
+        if(move > gravity && move < down_threshold) {
             arrow.y = move
         }
         else {
             arrow.y = down_threshold
             if (yUp != null &&  arrow.y == down_threshold) {
-                println(down_threshold.minus(yUp!!))
                 when(down_threshold.minus(yUp!!)) {
                     in 0f .. 500f  -> arrow.startAnimation(gravity_soft)
-                    in 500f .. 1000f  -> arrow.startAnimation(gravity_normal)
+                    else  -> arrow.startAnimation(gravity_normal)
                 }
                 yUp = null
             }
+        }
+    }
+
+    fun slide () {
+        Thread.sleep(500)
+        arrow0.startAnimation(blink)
+        Thread.sleep(500)
+        arrow1.startAnimation(blink1)
+        Thread.sleep(500)
+        arrow2.startAnimation(blink2)
+        GlobalScope.launch {
+            slide()
         }
     }
 }

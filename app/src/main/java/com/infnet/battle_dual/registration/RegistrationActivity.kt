@@ -4,14 +4,10 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.view.MotionEvent
 import android.view.Window
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import com.infnet.battle_dual.shared.DisplayMessage
 import com.infnet.battle_dual.R
 
 
@@ -37,8 +33,11 @@ class RegistrationActivity : AppCompatActivity() {
         val view = findViewById<ConstraintLayout>(R.id.layout)
         val down_threshold = metrics?.heightPixels?.times(95)?.div(100)!!.toFloat()
         val up_threshold = metrics?.heightPixels?.times(40)?.div(100)!!.toFloat()
-        val arrow = findViewById<ImageView>(R.id.arrow_up_main)
-        RegistrationArrowAnim(this, view, arrow, up_threshold, down_threshold)
+        val arrow = findViewById<ImageView>(R.id.arrow_main)
+        val arrow0 = findViewById<ImageView>(R.id.arrow_0)
+        val arrow1 = findViewById<ImageView>(R.id.arrow_1)
+        val arrow2 = findViewById<ImageView>(R.id.arrow_2)
+        RegistrationArrowAnim(this, view, arrow, arrow0, arrow1, arrow2, up_threshold, down_threshold)
     }
 
 }
