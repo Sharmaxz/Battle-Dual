@@ -17,15 +17,12 @@
             android:text="@string/app_name_uppercase"
             android:textColor="@android:color/white"
             android:textSize="80sp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="300dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.339"
             android:shadowColor="@android:color/black"
             android:shadowDx="2"
             android:shadowDy="1"
@@ -42,7 +39,7 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/txtAppName"
@@ -80,7 +77,6 @@
 
     <ImageView
             android:id="@+id/arrow_2"
-            android:layout_width="36dp"
             android:layout_height="18dp"
             android:scaleType="fitCenter"
             android:src="@drawable/arrow_up"
@@ -91,10 +87,10 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/txtAppName"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.50"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/arrow_1"
-            app:layout_constraintVertical_bias="1.0"/>
+            app:layout_constraintVertical_bias="1.0" android:layout_width="36dp"/>
 
 
     <View
@@ -107,7 +103,7 @@
             app:layout_constraintTop_toBottomOf="@+id/arrow_main"
             app:layout_constraintWidth_max="wrap"
             app:layout_constraintWidth_min="wrap"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="28dp"/>
+            app:layout_constraintHorizontal_bias="1.0"
+            android:layout_marginTop="36dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

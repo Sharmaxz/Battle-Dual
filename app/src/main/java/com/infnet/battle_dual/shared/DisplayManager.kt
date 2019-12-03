@@ -1,13 +1,15 @@
 package com.infnet.battle_dual.shared
 
 import android.content.Context
+import android.content.res.Resources
 import android.util.DisplayMetrics
 
 
-open class DisplayManager(context: Context) {
+open class DisplayManager(val context: Context) {
 
     val metrics : DisplayMetrics = context.resources.displayMetrics
-    var dpi = getDeviceDensity()
+    val dpi = getDeviceDensity()
+    val navigationHeight = getNavigationBarHeight()
 
     private fun getDeviceDensity() : String {
          return when (metrics.densityDpi) {
@@ -20,6 +22,14 @@ open class DisplayManager(context: Context) {
              in 800 .. 960 -> "XXXXHDPI"
             else -> "UNKNOWN"
         }
+    }
+
+    private fun getNavigationBarHeight(): Int {
+        val resources: Resources = context.resources
+        val resourceId: Int = resources.getIdentifier("navigation_bar_height", "dimen", "android")
+        return if (resourceId > 0) {
+            resources.getDimensionPixelSize(resourceId)
+        } else 0
     }
 
 

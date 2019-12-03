@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.infnet.battle_dual.R
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.supervisorScope
 
 class RegistrationArrowAnim(context : Context,
                             private val view : ConstraintLayout,
@@ -36,14 +37,11 @@ class RegistrationArrowAnim(context : Context,
     //private val gravity_heavy = AnimationUtils.loadAnimation(context, R.anim.arrow_gravity_heavy)
 
     init {
-        start()
         listener()
         slide()
         update()
     }
 
-    private fun start() {
-    }
 
 
     private fun update () {
@@ -53,7 +51,9 @@ class RegistrationArrowAnim(context : Context,
 
         Thread.sleep(1)
         GlobalScope.launch {
-            update()
+            supervisorScope {
+                update()
+            }
         }
     }
 
@@ -108,22 +108,27 @@ class RegistrationArrowAnim(context : Context,
         else {
             arrow.y = down_threshold
             if (yUp != null &&  arrow.y == down_threshold) {
-                when(down_threshold.minus(yUp!!)) {
-                    in 0f .. 500f  -> arrow.startAnimation(gravity_soft)
-                    else  -> arrow.startAnimation(gravity_normal)
-                }
+                Thread(Runnable {
+                    when(down_threshold.minus(yUp!!)) {
+                        in 0f .. 500f  -> arrow.startAnimation(gravity_soft)
+                        else  -> arrow.startAnimation(gravity_normal)
+                    }
+                })
                 yUp = null
             }
         }
     }
 
     fun slide () {
-        Thread.sleep(500)
-        arrow0.startAnimation(blink)
-        Thread.sleep(500)
-        arrow1.startAnimation(blink1)
-        Thread.sleep(500)
-        arrow2.startAnimation(blink2)
+        Thread(Runnable {
+            Thread.sleep(500)
+            arrow0.startAnimation(blink)
+            Thread.sleep(500)
+            arrow1.startAnimation(blink1)
+            Thread.sleep(500)
+            arrow2.startAnimation(blink2)
+        })
+
         GlobalScope.launch {
             slide()
         }
