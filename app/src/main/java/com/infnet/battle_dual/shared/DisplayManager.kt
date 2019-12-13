@@ -1,15 +1,19 @@
 package com.infnet.battle_dual.shared
 
+import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
 import android.util.DisplayMetrics
+import android.view.Display
 
 
 open class DisplayManager(val context: Context) {
 
     val metrics : DisplayMetrics = context.resources.displayMetrics
+
     val dpi = getDeviceDensity()
     val navigationHeight = getNavigationBarHeight()
+
 
     private fun getDeviceDensity() : String {
          return when (metrics.densityDpi) {

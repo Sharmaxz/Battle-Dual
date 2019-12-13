@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         else {
             val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)
+            finish()
        }
     }
 

@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Battle Dual</string>
-    <string name="app_name_uppercase">BATTLE DUAL</string>
-
+        <string name="app_name">Battle Dual</string>
+        <string name="app_name_uppercase" translatable="false">BATTLE DUAL</string>
 </resources>

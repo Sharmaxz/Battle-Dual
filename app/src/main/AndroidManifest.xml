@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.infnet.battle_dual">
+          xmlns:tools="http://schemas.android.com/tools" package="com.infnet.battle_dual">
 
     <application
             android:allowBackup="true"
@@ -10,17 +10,17 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
-                  android:label="@string/app_name"
                   android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
         <activity android:name=".registration.RegistrationActivity"
-                  android:label="@string/app_name"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".settings.CreditsActivity"
                   android:screenOrientation="portrait">
         </activity>
     </application>

@@ -9,6 +9,8 @@
         android:background="@drawable/gradient_background"
         tools:context=".MainActivity">
 
+    <include android:id="@+id/toolbar" layout="@layout/toolbar_registration"/>
+
     <TextView
             android:id="@+id/txtAppName"
             android:layout_width="219dp"
@@ -91,10 +93,10 @@
 
 
     <View
-            android:id="@+id/viewRectangle"
+            android:id="@+id/rectangle"
             android:layout_width="0dp"
             android:layout_height="303dp"
-            android:background="@drawable/login_rectangle"
+            android:background="@drawable/registration_rectangle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/arrow_up_main"

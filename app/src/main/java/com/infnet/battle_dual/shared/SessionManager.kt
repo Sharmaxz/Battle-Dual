@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.SharedPreferences.Editor
 import com.google.gson.Gson
-import com.infnet.battle_dual.models.User
+import com.infnet.battle_dual.model.User
 import java.lang.Exception
 
 open class SessionManager(context : Context) {
@@ -25,6 +25,10 @@ open class SessionManager(context : Context) {
         editor.putString("user", userSerialized)
         editor.commit()
         //gson.fromJson(userSerialized, User::class.java)
+    }
+
+    fun load() {
+
     }
 
     fun delete() {

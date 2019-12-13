@@ -1,4 +1,4 @@
-package com.infnet.battle_dual.models
+package com.infnet.battle_dual.model
 
 class User (val nickname : String = "",
             val email : String = "",
