@@ -34,6 +34,12 @@ class RegistrationActivity : AppCompatActivity() {
         arrow()
     }
 
+    override fun onResume() {
+        super.onResume()
+        windowManager.defaultDisplay.getMetrics(metrics)
+    }
+
+
     //region Toolbar
     override fun onCreateOptionsMenu(menu : Menu): Boolean {
         super.onCreateOptionsMenu(menu)

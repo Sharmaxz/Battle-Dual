@@ -133,25 +133,18 @@ class Arrow(context : Context,
         }
     }
 
-    fun move(move : Float) {
-        arrow.alpha = up_threshold.minus(arrow.y).div(up_threshold - down_threshold)
+    private fun move(move : Float) {
+        val percentage = up_threshold.minus(arrow.y).div(up_threshold - down_threshold)
+        arrow.alpha = percentage
         arrow.y = move
-
         rectangleAnim.follow(move)
     }
 
-//    fun slide () {
-//        Thread(Runnable {
-//            Thread.sleep(500)
-//            arrow0.startAnimation(blink)
-//            Thread.sleep(500)
-//            arrow1.startAnimation(blink1)
-//            Thread.sleep(500)
-//            arrow2.startAnimation(blink2)
-//        })
-//
-//        GlobalScope.launch {
-//            slide()
-//        }
-//   }
+    private fun slideUp(limit : Float = 0f) {
+        val percentage = up_threshold.minus(arrow.y).div(up_threshold - down_threshold)
+        if (percentage < 0.6f && !hold) {
+            slideUp(up_threshold.times(1.60f)) //.times(1.60f)
+        }
+    }
+
 }
