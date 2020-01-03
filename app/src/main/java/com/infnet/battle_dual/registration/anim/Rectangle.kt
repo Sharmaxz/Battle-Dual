@@ -12,6 +12,7 @@ import kotlinx.coroutines.supervisorScope
 
 class Rectangle (val context : Context,
                  private val rectangle : View,
+                 private val content : View,
                  down_threshold : Float) {
 
 
@@ -29,5 +30,10 @@ class Rectangle (val context : Context,
     fun follow(move : Float) {
         move(move.plus(diff))
     }
+
+    fun alphaContent(alpha : Float) {
+        content.alpha = alpha
+    }
+
 
 }

@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Battle Dual</string>
+
+    <!-- Registration -->
+    <!-- Sign in -->
+
+    <string name="login_sign_in">ENTRAR</string>
+    <string name="login_hint_email">Email</string>
+    <string name="login_hint_password">Senha</string>
+    <string name="login_button">ENTRAR</string>
+    <string name="login_create"><u>Novo no battle? Crie uma conta já!</u></string>
+
+    <string name="login_error">Email ou senha inválidos.</string>
+    <string name="login_error_timeout">Por favor verifique sua conexão com a internet.</string>
+    <string name="login_error_email">O email foi preenchido incorretamente!</string>
+    <string name="login_error_email_empty">O campo do email está vazio!</string>
+    <string name="login_error_password_empty">>O campo da senha está vazio!</string>
+
+
+    <!-- END Sign in -->
+
+    <!-- Sign Up -->
+
+    <string name="login_sign_up">INSCREVE-SE</string>
+    <string name="registration_sign_up">SIGN UP</string>
+    <string name="registration_hint_email">Email</string>
+    <string name="registration_hint_nickname">Nickname</string>
+    <string name="registration_hint_password">Senha</string>
+    <string name="registration_hint_confirm_password">Confirmção de senha</string>
+    <string name="registration_go_battle">VÁ A BATALHA!</string>
+
+    <!-- END Sign up -->
+    <!-- END Registration -->
+
+
 </resources>

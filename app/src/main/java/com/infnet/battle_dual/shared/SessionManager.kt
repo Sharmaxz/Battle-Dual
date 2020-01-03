@@ -19,7 +19,7 @@ open class SessionManager(context : Context) {
 
     private lateinit var user : User
 
-    fun create(nickname : String, email : String, first_name : String, last_name : String = "") {
+    fun create(nickname : String, email : String, first_name : String, last_name : String) {
         user = User(nickname, email, true, first_name, last_name)
         val userSerialized = gson.toJson(user)
         editor.putString("user", userSerialized)

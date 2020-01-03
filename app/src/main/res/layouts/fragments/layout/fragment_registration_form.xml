@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+            android:text="@string/registration_sign_up"
+            android:textSize="@dimen/registration_sign_in"
+            android:fontFamily="@font/agency_fb_bold"
+            android:textColor="@color/colorPrimary"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:gravity="center">
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:hint=" "
+                android:textColorHint="@color/darkGray"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.FilledBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nickname"
+                    android:hint="@string/registration_hint_nickname"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/agency_fb"
+                    android:paddingTop="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:hint=" "
+                android:textColorHint="@color/darkGray"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.FilledBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:inputType="textVisiblePassword"
+                    android:hint="@string/registration_hint_email"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/agency_fb"
+                    android:paddingTop="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:hint=" "
+                android:textColorHint="@color/darkGray"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.FilledBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    android:inputType="textVisiblePassword"
+                    android:hint="@string/registration_hint_password"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/agency_fb"
+                    android:paddingTop="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:hint=" "
+                android:textColorHint="@color/darkGray"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.FilledBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/confirm_password"
+                    android:inputType="textVisiblePassword"
+                    android:hint="@string/registration_hint_confirm_password"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/agency_fb"
+                    android:paddingTop="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    </LinearLayout>
+
+
+    <Button
+            android:id="@+id/btnRegistration"
+            android:text="@string/registration_go_battle"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/agency_fb"
+            android:background="@drawable/gradient_button"
+            android:layout_margin="30dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+    </Button>
+
+
+</LinearLayout>
+

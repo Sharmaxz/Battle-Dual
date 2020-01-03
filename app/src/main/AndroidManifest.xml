@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools" package="com.infnet.battle_dual">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.infnet.battle_dual">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
             android:allowBackup="true"
@@ -9,6 +12,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+
         <activity android:name=".MainActivity"
                   android:screenOrientation="portrait">
             <intent-filter>
@@ -17,12 +21,15 @@
             </intent-filter>
         </activity>
 
+
         <activity android:name=".registration.RegistrationActivity"
                   android:screenOrientation="portrait">
         </activity>
+
         <activity android:name=".settings.CreditsActivity"
                   android:screenOrientation="portrait">
         </activity>
+
     </application>
 
 </manifest>

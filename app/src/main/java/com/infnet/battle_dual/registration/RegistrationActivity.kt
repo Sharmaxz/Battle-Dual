@@ -14,12 +14,18 @@ import androidx.appcompat.app.AppCompatActivity
 import com.infnet.battle_dual.settings.CreditsActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.infnet.battle_dual.registration.anim.Arrow
+import com.infnet.battle_dual.registration.fragments.LoginFragment
+import com.infnet.battle_dual.registration.fragments.RegistrationFragment
 
+import kotlinx.android.synthetic.main.activity_registration.*
+import kotlinx.android.synthetic.main.fragment_login_form.*
 
 @SuppressLint("Registration")
 class RegistrationActivity : AppCompatActivity() {
 
+    private var fragmentManager = supportFragmentManager
     private var metrics : DisplayMetrics? = null
+    private lateinit var arrow : Arrow
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,15 +36,32 @@ class RegistrationActivity : AppCompatActivity() {
         val toolbar = Toolbar(this, findViewById(R.id.toolbar), R.menu.menu)
         toolbar.titleEnabled(false)
 
-        //Arrow
-        arrow()
+        //Fragment Login
+        val login = LoginFragment()
+        fragmentManager.beginTransaction().replace(R.id.rectangle_form, login).commit()
     }
 
     override fun onResume() {
         super.onResume()
         windowManager.defaultDisplay.getMetrics(metrics)
+        arrow()
+
+        //Fragment Registration
+        btnRegistration.setOnClickListener {
+            val registration = RegistrationFragment()
+            fragmentManager.beginTransaction().replace(R.id.rectangle_form, registration).commit()
+        }
+
     }
 
+    override fun onBackPressed() {
+        if(!arrow.login && !arrow.registration)
+            super.onBackPressed()
+        else {
+            arrow.backPressed()
+            return
+        }
+    }
 
     //region Toolbar
     override fun onCreateOptionsMenu(menu : Menu): Boolean {
@@ -58,17 +81,10 @@ class RegistrationActivity : AppCompatActivity() {
     //region Arrow
     private fun arrow() {
         //96 navegation bar  metrics?.heightPixels?.minus(96)?.times(95)?.div(100)!!.toFloat()
-        val view = findViewById<ConstraintLayout>(R.id.layout)
         val down_threshold = metrics?.heightPixels?.times(95)?.div(100)!!.toFloat()
         val up_threshold = metrics?.heightPixels?.times(40)?.div(100)!!.toFloat()
-        val arrow = findViewById<ImageView>(R.id.arrow_main)
-        val rectangle = findViewById<View>(R.id.rectangle)
-//        val arrow0 = findViewById<ImageView>(R.id.arrow_0)
-//        val arrow1 = findViewById<ImageView>(R.id.arrow_1)
-//        val arrow2 = findViewById<ImageView>(R.id.arrow_2)
 
-        Arrow(this, view, arrow, rectangle, up_threshold, down_threshold)
-
+        arrow = Arrow(this, layout, arrow_main, rectangle, rectangle_form, up_threshold, down_threshold)
     }
     //endregion
 

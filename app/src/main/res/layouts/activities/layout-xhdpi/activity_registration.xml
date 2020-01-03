@@ -97,16 +97,23 @@
             app:layout_constraintBottom_toTopOf="@+id/arrow_1"
             app:layout_constraintVertical_bias="1.0"/>
 
-
-    <View
+    <FrameLayout
             android:id="@+id/rectangle"
-            android:layout_width="0dp"
-            android:layout_height="303dp"
+            android:layout_width="match_parent"
+            android:layout_height="1000dp"
+            android:layout_marginTop="@dimen/registration_rectangle_marginTop"
+            android:padding="@dimen/registration_rectangle_padding"
             android:background="@drawable/registration_rectangle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/arrow_main"
-            app:layout_constraintWidth_max="wrap" app:layout_constraintWidth_min="wrap"
-            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="36dp"/>
+            app:layout_constraintWidth_max="wrap"
+            app:layout_constraintWidth_min="wrap"
+            app:layout_constraintHorizontal_bias="1.0">
+
+        <FrameLayout android:id="@+id/rectangle_form"
+                     android:layout_height="match_parent"
+                     android:layout_width="match_parent"/>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

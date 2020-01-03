@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         val display = DisplayManager(this)
         val session = SessionManager(this)
 
-        //session.create("teste", "teste@email.com", "teste", "teste")
         if(session.isLogged()) {
             println("Oh YAAAY!")
 //            val intent = Intent(this, RegistrationActivity::class.java)

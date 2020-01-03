@@ -36,21 +36,28 @@ import kotlinx.coroutines.supervisorScope
 class Arrow(context : Context,
             private val view : ConstraintLayout,
             private val arrow : ImageView,
-            rectangle : View,
+            private val rectangle : View,
+            private val content : View,
             private val up_threshold : Float,
             private val down_threshold : Float) {
 
     //Preferences
     //Gravity Force
-    private val gravity : Float = 10f
+    private val gravity_force : Float = 10f
+    private val limit : Float = 1.6f
 
     private var hold = false
+    private var slide = false
+    private var gravity = true
+    var login = false
+    var registration = false
+
     private var y : Float? = null
     private var yUp : Float? = null
     private var yDown : Float? = null
 
     //Rectangle
-    private val rectangleAnim = Rectangle(context, rectangle, down_threshold)
+    private val rectangleAnim = Rectangle(context, rectangle, content, down_threshold)
 
 
     private val shake = AnimationUtils.loadAnimation(context, R.anim.arrow_shake)
@@ -67,7 +74,10 @@ class Arrow(context : Context,
     }
 
     private fun update () {
-        if(!hold)
+        if(!login)
+            slideUp(limit)
+
+        if(!hold && gravity)
             gravity()
 
         Thread.sleep(1)
@@ -85,6 +95,9 @@ class Arrow(context : Context,
                 MotionEvent.ACTION_DOWN -> {
                     arrow.startAnimation(shake)
                     yDown = event.y
+
+                    if(login && yDown!! < rectangle.y)
+                        gravity = true
                 }
                 MotionEvent.ACTION_UP -> {
                     hold = false
@@ -97,39 +110,10 @@ class Arrow(context : Context,
                     y = event.y
                 }
             }
-             if (yDown != null && hold)
-                 slide()
-
+             if (yDown != null && hold) {
+                 swipe()
+             }
            true
-        }
-    }
-
-    private fun slide () {
-        val diffY = yDown!!.minus(y!!)
-        var move : Float = down_threshold.minus(diffY)
-
-        if(move < up_threshold)
-            move = up_threshold
-        else if (move > down_threshold)
-            move = down_threshold
-
-        move(move)
-    }
-
-    private fun gravity() {
-        val move = arrow.y + gravity
-
-        if(move > gravity && move < down_threshold)
-            move(move)
-        else {
-            move(down_threshold)
-            if (yUp != null &&  arrow.y == down_threshold) {
-                    when(down_threshold.minus(yUp!!)) {
-                        in 0f .. 500f  -> arrow.startAnimation(gravity_soft)
-                        else  -> arrow.startAnimation(gravity_normal)
-                    }
-                yUp = null
-            }
         }
     }
 
@@ -137,13 +121,72 @@ class Arrow(context : Context,
         val percentage = up_threshold.minus(arrow.y).div(up_threshold - down_threshold)
         arrow.alpha = percentage
         arrow.y = move
+        rectangleAnim.alphaContent(1 - percentage )
         rectangleAnim.follow(move)
     }
 
+    private fun swipe(direction : String = "UP") {
+        val diffY = yDown!!.minus(y!!)
+        var move = 0f
+        when(direction) {
+            "UP" ->  move = down_threshold.minus(diffY)
+            "DOWN" -> move  = up_threshold.minus(diffY)
+        }
+
+        if(move < up_threshold) {
+            move = up_threshold
+            if(hold) {
+                gravity = false
+                login = true
+            }
+        }
+        else if (move > down_threshold)
+            move = down_threshold
+        move(move)
+    }
+
     private fun slideUp(limit : Float = 0f) {
-        val percentage = up_threshold.minus(arrow.y).div(up_threshold - down_threshold)
-        if (percentage < 0.6f && !hold) {
-            slideUp(up_threshold.times(1.60f)) //.times(1.60f)
+        if (!hold) {
+            slide = arrow.y > up_threshold && arrow.y < down_threshold
+            if (slide) {
+                val percentage = up_threshold.minus(arrow.y).div(up_threshold - down_threshold)
+                val move = arrow.y - gravity_force
+                if (percentage < limit.minus(1f)) {
+                    if (move > up_threshold) {
+                        move(move)
+                        gravity = false
+                    }
+                    else if (move <= up_threshold) {
+                        move(up_threshold)
+                        login = true
+                    }
+                }
+            }
+        }
+    }
+
+    private fun gravity() {
+        if(arrow.y != 0f && arrow.y < down_threshold) {
+            val move = arrow.y + gravity_force
+            if (move > gravity_force && move < down_threshold)
+                move(move)
+            else {
+                move(down_threshold)
+                login = false
+                if (yUp != null && arrow.y == down_threshold) {
+                    when (down_threshold.minus(yUp!!)) {
+                        in 0f..500f -> arrow.startAnimation(gravity_soft)
+                        else -> arrow.startAnimation(gravity_normal)
+                    }
+                    yUp = null
+                }
+            }
+        }
+    }
+
+    fun backPressed() {
+        if(login) {
+            gravity = true
         }
     }
 

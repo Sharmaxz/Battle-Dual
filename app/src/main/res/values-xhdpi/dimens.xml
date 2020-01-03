@@ -12,10 +12,8 @@
     <dimen name="registration_rectangle_padding">36dp</dimen>
     <!-- END fragment rectangle -->
 
-
     <!-- FONT -->
-    <dimen name="registration_sign_in">20sp</dimen>
+    <dimen name="registration_sign_in">30sp</dimen>
     <!-- END FONT -->
-
 
 </resources>
