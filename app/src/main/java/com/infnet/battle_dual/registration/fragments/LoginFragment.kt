@@ -28,8 +28,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         btnLogin.setOnClickListener { attemptLogin() }
-        btnRegistration.setOnClickListener {
-        }
+        btnRegistration.setOnClickListener {}
     }
 
     private fun attemptLogin() {

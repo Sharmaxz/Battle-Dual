@@ -184,10 +184,29 @@ class Arrow(context : Context,
         }
     }
 
-    fun backPressed() {
+    fun backPressed() : Boolean {
         if(login) {
             gravity = true
+            return false
+        } else if (registration) {
+            registration = false
+            login = true
+            return true
         }
+        return false
+    }
+
+
+    fun registration(active : Boolean = true) {
+        if(active) {
+            login = false
+            registration = true
+        }
+        else {
+            login = true
+            registration = false
+        }
+
     }
 
 }

@@ -37,8 +37,7 @@ class RegistrationActivity : AppCompatActivity() {
         toolbar.titleEnabled(false)
 
         //Fragment Login
-        val login = LoginFragment()
-        fragmentManager.beginTransaction().replace(R.id.rectangle_form, login).commit()
+        login()
     }
 
     override fun onResume() {
@@ -47,19 +46,20 @@ class RegistrationActivity : AppCompatActivity() {
         arrow()
 
         //Fragment Registration
-        btnRegistration.setOnClickListener {
-            val registration = RegistrationFragment()
-            fragmentManager.beginTransaction().replace(R.id.rectangle_form, registration).commit()
-        }
+        btnRegistration.setOnClickListener { registration() }
+
 
     }
 
     override fun onBackPressed() {
         if(!arrow.login && !arrow.registration)
             super.onBackPressed()
-        else {
-            arrow.backPressed()
-            return
+        else
+        {
+            val screen = arrow.backPressed()
+            if (screen) {
+                login()
+            }
         }
     }
 
@@ -94,6 +94,22 @@ class RegistrationActivity : AppCompatActivity() {
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
+    //endregion
+
+    //region Fragments
+
+    private fun login() {
+        val login = LoginFragment()
+        fragmentManager.beginTransaction().replace(R.id.rectangle_form, login).commit()
+    }
+
+    private fun registration() {
+        val registration = RegistrationFragment()
+        fragmentManager.beginTransaction().replace(R.id.rectangle_form, registration).commit()
+        registration.
+        arrow.registration(true)
+    }
+
     //endregion
 
 }
