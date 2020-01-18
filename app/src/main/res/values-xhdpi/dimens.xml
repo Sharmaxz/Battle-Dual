@@ -4,16 +4,50 @@
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
 
 
-    <!-- Registration -->
-    <!-- Sign In -->
+    <!-- region Registration -->
+        <!-- region Fragment Rectangle -->
+        <dimen name="registration_rectangle_marginTop">36dp</dimen>
+        <dimen name="registration_rectangle_padding">36dp</dimen>
+        <!-- endregion Fragment Rectangle -->
+        <dimen name="registration_font">20sp</dimen>
 
-    <!-- fragment rectangle -->
-    <dimen name="registration_rectangle_marginTop">36dp</dimen>
-    <dimen name="registration_rectangle_padding">36dp</dimen>
-    <!-- END fragment rectangle -->
+        <!-- region Sign In -->
+            <!-- region Sign In Text -->
+            <dimen name="registration_sign_in_font">30sp</dimen>
+            <!-- endregion Sign In Text -->
 
-    <!-- FONT -->
-    <dimen name="registration_sign_in">30sp</dimen>
-    <!-- END FONT -->
+            <!-- region Error Text -->
+            <dimen name="registration_error_font">14sp</dimen>
+            <!-- endregion Error Text -->
+
+            <!-- region Email TextInputLayout -->
+            <dimen name="registration_email_layout_marginTop">10dp</dimen>
+            <!-- endregion Email TextInputLayout -->
+
+            <!-- region Email TextInputLayout -->
+            <dimen name="registration_password_layout_marginTop">13dp</dimen>
+            <!-- endregion Email TextInputLayout -->
+
+            <!-- region Login Button -->
+            <dimen name="registration_button_font">28sp</dimen>
+            <dimen name="registration_button_marginTop">23dp</dimen>
+            <!-- endregion Login Button -->
+
+            <!-- region Create Button -->
+            <dimen name="registration_button_create_font">20sp</dimen>
+            <dimen name="registration_button_create_marginTop">15dp</dimen>
+            <!-- endregion Create Button -->
+
+        <!-- endregion Sign In -->
+
+        <!-- region Sign Up -->
+        <dimen name="registration_sign_up_form_height">370dp</dimen>
+
+            <!-- region Sign In Text -->
+            <dimen name="registration_sign_up_font">30sp</dimen>
+            <!-- endregion Sign In Text -->
+
+        <!-- endregion Sign Up -->
+    <!-- endregion Registration -->
 
 </resources>

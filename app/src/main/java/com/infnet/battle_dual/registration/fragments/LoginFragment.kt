@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.infnet.battle_dual.R
+import com.infnet.battle_dual.registration.RegistrationActivity
 import kotlinx.android.synthetic.main.fragment_login_form.*
 
 import khttp.*
@@ -22,14 +24,17 @@ class LoginFragment : Fragment() {
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view  = inflater.inflate(R.layout.fragment_login_form, container, false)
-
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        activity!!.windowManager.defaultDisplay.getRealMetrics(resources.displayMetrics)
         btnLogin.setOnClickListener { attemptLogin() }
-        btnRegistration.setOnClickListener {}
+        btnRegistration.setOnClickListener {
+            (activity as RegistrationActivity).registration()
+        }
     }
+
 
     private fun attemptLogin() {
         //Avoid other login attempt

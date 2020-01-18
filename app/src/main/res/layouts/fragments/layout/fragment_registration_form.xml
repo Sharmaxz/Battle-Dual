@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
     <TextView
             android:text="@string/registration_sign_up"
-            android:textSize="@dimen/registration_sign_in"
+            android:textSize="@dimen/registration_sign_up_font"
             android:fontFamily="@font/agency_fb_bold"
             android:textColor="@color/colorPrimary"
             android:textAlignment="center"
@@ -15,14 +16,63 @@
 
     <LinearLayout
             android:orientation="vertical"
+            android:layout_marginTop="30dp"
             android:layout_width="fill_parent"
-            android:layout_height="200dp"
-            android:gravity="center">
+            android:layout_height="@dimen/registration_sign_up_form_height">
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:hint=" "
+                    android:layout_marginTop="0dp"
+                    android:textColorHint="@color/darkGray"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    style="@style/AppTheme.FilledBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:hint="@string/registration_hint_first_name"
+                        android:textSize="@dimen/registration_font"
+                        android:inputType="text"
+                        android:fontFamily="@font/agency_fb"
+                        android:paddingTop="0dp"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end">
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:hint=" "
+                        android:textColorHint="@color/darkGray"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        style="@style/AppTheme.FilledBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:hint="@string/registration_hint_last_name"
+                        android:textSize="@dimen/registration_font"
+                        android:inputType="text"
+                        android:fontFamily="@font/agency_fb"
+                        android:paddingTop="0dp"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
                 android:hint=" "
-                android:textColorHint="@color/darkGray"
                 android:layout_marginTop="15dp"
+                android:textColorHint="@color/darkGray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/AppTheme.FilledBox">
@@ -30,8 +80,9 @@
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nickname"
                     android:hint="@string/registration_hint_nickname"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/registration_font"
                     android:fontFamily="@font/agency_fb"
+                    android:inputType="text"
                     android:paddingTop="0dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -48,9 +99,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
-                    android:inputType="textVisiblePassword"
+                    android:inputType="textEmailAddress"
                     android:hint="@string/registration_hint_email"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/registration_font"
                     android:fontFamily="@font/agency_fb"
                     android:paddingTop="0dp"
                     android:layout_width="match_parent"
@@ -68,9 +119,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password"
-                    android:inputType="textVisiblePassword"
+                    android:inputType="textPassword"
                     android:hint="@string/registration_hint_password"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/registration_font"
                     android:fontFamily="@font/agency_fb"
                     android:paddingTop="0dp"
                     android:layout_width="match_parent"
@@ -88,9 +139,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/confirm_password"
-                    android:inputType="textVisiblePassword"
+                    android:inputType="textPassword"
                     android:hint="@string/registration_hint_confirm_password"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/registration_font"
                     android:fontFamily="@font/agency_fb"
                     android:paddingTop="0dp"
                     android:layout_width="match_parent"
@@ -112,7 +163,8 @@
             android:background="@drawable/gradient_button"
             android:layout_margin="30dp"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent">
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true">
     </Button>
 
 

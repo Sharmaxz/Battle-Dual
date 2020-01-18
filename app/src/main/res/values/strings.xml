@@ -3,35 +3,37 @@
         <string name="app_name" translatable="false">Battle Dual</string>
         <string name="app_name_uppercase" translatable="false">BATTLE DUAL</string>
 
-        <!-- Registration -->
-        <!-- Sign in -->
+        <!-- region Registration -->
+                <!-- region Sign in -->
 
-        <string name="login_sign_in">SIGN IN</string>
-        <string name="login_hint_email">Email</string>
-        <string name="login_hint_password">Password</string>
-        <string name="login_button">LOGIN</string>
-        <string name="login_create"><u>New in the battle? Create an account!</u></string>
+                <string name="login_sign_in">SIGN IN</string>
+                <string name="login_hint_email">Email</string>
+                <string name="login_hint_password">Password</string>
+                <string name="login_button">LOGIN</string>
+                <string name="login_create"><u>New in the battle? Create an account!</u></string>
 
-        <string name="login_error">Email or password invalid.</string>
-        <string name="login_error_timeout">Please check your connection.</string>
-        <string name="login_error_email">The email was filled incorrectly!</string>
-        <string name="login_error_email_empty">The email field can not be empty!</string>
-        <string name="login_error_password_empty">The password field can not be empty!</string>
-        <string name="login_sign_up">SIGN UP</string>
+                <string name="login_error">Email or password invalid.</string>
+                <string name="login_error_timeout">Please check your connection.</string>
+                <string name="login_error_email">The email was filled incorrectly!</string>
+                <string name="login_error_email_empty">The email field can not be empty!</string>
+                <string name="login_error_password_empty">The password field can not be empty!</string>
+                <string name="login_sign_up">SIGN UP</string>
 
-        <!-- END Sign in -->
+                <!-- endregion Sign in -->
 
-        <!-- Sign up -->
+                <!-- region Sign up -->
 
-        <string name="registration_sign_up">SIGN UP</string>
-        <string name="registration_hint_email">Email</string>
-        <string name="registration_hint_nickname">Nickname</string>
-        <string name="registration_hint_password">Password</string>
-        <string name="registration_hint_confirm_password">Confirm Password</string>
-        <string name="registration_go_battle">GO TO THE BATTLE!</string>
+                <string name="registration_sign_up">CREATE YOUR ACCOUNT</string>
+                <string name="registration_hint_first_name">First Name</string>
+                <string name="registration_hint_last_name">Last Name</string>
+                <string name="registration_hint_email">Email</string>
+                <string name="registration_hint_nickname">Nickname</string>
+                <string name="registration_hint_password">Password</string>
+                <string name="registration_hint_confirm_password">Confirm Password</string>
+                <string name="registration_go_battle">GO TO THE BATTLE!</string>
 
-        <!-- END Sign up -->
-        <!-- END Registration -->
+                <!-- endregion Sign up -->
+        <!-- endregion Registration -->
 
 
 </resources>

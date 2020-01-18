@@ -46,20 +46,15 @@ class RegistrationActivity : AppCompatActivity() {
         arrow()
 
         //Fragment Registration
-        btnRegistration.setOnClickListener { registration() }
-
-
+        btnRegistration.setOnClickListener {
+            registration()
+        }
     }
 
     override fun onBackPressed() {
-        if(!arrow.login && !arrow.registration)
+        if(arrow.registration) {
+            arrow.backPressed()
             super.onBackPressed()
-        else
-        {
-            val screen = arrow.backPressed()
-            if (screen) {
-                login()
-            }
         }
     }
 
@@ -83,8 +78,9 @@ class RegistrationActivity : AppCompatActivity() {
         //96 navegation bar  metrics?.heightPixels?.minus(96)?.times(95)?.div(100)!!.toFloat()
         val down_threshold = metrics?.heightPixels?.times(95)?.div(100)!!.toFloat()
         val up_threshold = metrics?.heightPixels?.times(40)?.div(100)!!.toFloat()
+        val registration_up_threshold = resources.getDimensionPixelSize(resources.getIdentifier("status_bar_height", "dimen", "android"))
 
-        arrow = Arrow(this, layout, arrow_main, rectangle, rectangle_form, up_threshold, down_threshold)
+        arrow = Arrow(this, layout, arrow_main, rectangle, rectangle_form, up_threshold, down_threshold, registration_up_threshold)
     }
     //endregion
 
@@ -101,13 +97,14 @@ class RegistrationActivity : AppCompatActivity() {
     private fun login() {
         val login = LoginFragment()
         fragmentManager.beginTransaction().replace(R.id.rectangle_form, login).commit()
+        windowManager.defaultDisplay.getMetrics(metrics)
     }
 
-    private fun registration() {
+    fun registration() {
         val registration = RegistrationFragment()
-        fragmentManager.beginTransaction().replace(R.id.rectangle_form, registration).commit()
-        registration.
-        arrow.registration(true)
+        fragmentManager.beginTransaction().replace(R.id.rectangle_form, registration, null).addToBackStack(null).commit()
+        arrow.registration()
+        windowManager.defaultDisplay.getMetrics(metrics)
     }
 
     //endregion

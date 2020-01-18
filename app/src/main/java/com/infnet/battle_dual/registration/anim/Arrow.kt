@@ -28,26 +28,28 @@ import kotlinx.coroutines.supervisorScope
  *   val view = findViewById<ConstraintLayout>(R.id.layout)
  *   val down_threshold = metrics?.heightPixels?.times(95)?.div(100)!!.toFloat()
  *   val up_threshold = metrics?.heightPixels?.times(40)?.div(100)!!.toFloat()
+ *   val registration_up_threshold = resources.getDimensionPixelSize(resources.getIdentifier("status_bar_height", "dimen", "android"))
  *
- *   Arrow(this, view, arrow, up_threshold, down_threshold)
+ *   Arrow(this, view, arrow, up_threshold, down_threshold, registration_up_threshold)
  *
  **/
 
-class Arrow(context : Context,
+class Arrow(private val context : Context,
             private val view : ConstraintLayout,
             private val arrow : ImageView,
             private val rectangle : View,
             private val content : View,
             private val up_threshold : Float,
-            private val down_threshold : Float) {
+            private val down_threshold : Float,
+            private val registration_up_threshold : Int) {
 
     //Preferences
-    //Gravity Force
+    // region Gravity Force
     private val gravity_force : Float = 10f
     private val limit : Float = 1.6f
+    // endregion
 
     private var hold = false
-    private var slide = false
     private var gravity = true
     var login = false
     var registration = false
@@ -56,9 +58,9 @@ class Arrow(context : Context,
     private var yUp : Float? = null
     private var yDown : Float? = null
 
-    //Rectangle
+    // region Rectangle
     private val rectangleAnim = Rectangle(context, rectangle, content, down_threshold)
-
+    // endregion
 
     private val shake = AnimationUtils.loadAnimation(context, R.anim.arrow_shake)
     private val blink = AnimationUtils.loadAnimation(context, R.anim.arrow_blink)
@@ -66,7 +68,6 @@ class Arrow(context : Context,
     private val blink2 = AnimationUtils.loadAnimation(context, R.anim.arrow_blink2)
     private val gravity_soft = AnimationUtils.loadAnimation(context, R.anim.arrow_gravity_soft)
     private val gravity_normal = AnimationUtils.loadAnimation(context, R.anim.arrow_gravity_normal)
-    private val gravity_heavy = AnimationUtils.loadAnimation(context, R.anim.arrow_gravity_heavy)
 
     init {
         listener()
@@ -74,7 +75,13 @@ class Arrow(context : Context,
     }
 
     private fun update () {
-        if(!login)
+
+        if(registration)
+            slideUp(1f)
+        else if(login && !registration) {
+            slideDown(limit)
+        }
+        else if(!login)
             slideUp(limit)
 
         if(!hold && gravity)
@@ -96,7 +103,7 @@ class Arrow(context : Context,
                     arrow.startAnimation(shake)
                     yDown = event.y
 
-                    if(login && yDown!! < rectangle.y)
+                    if(login && !registration && yDown!! < rectangle.y)
                         gravity = true
                 }
                 MotionEvent.ACTION_UP -> {
@@ -118,7 +125,7 @@ class Arrow(context : Context,
     }
 
     private fun move(move : Float) {
-        val percentage = up_threshold.minus(arrow.y).div(up_threshold - down_threshold)
+        val percentage = percentage(up_threshold)
         arrow.alpha = percentage
         arrow.y = move
         rectangleAnim.alphaContent(1 - percentage )
@@ -142,27 +149,64 @@ class Arrow(context : Context,
         }
         else if (move > down_threshold)
             move = down_threshold
+
         move(move)
     }
 
+    private fun slide(limit : Float) : Boolean {
+        return arrow.y > limit && arrow.y < down_threshold
+    }
+
+    private fun percentage(limit: Float) : Float {
+        return limit.minus(arrow.y).div(limit - down_threshold)
+    }
+
     private fun slideUp(limit : Float = 0f) {
-        if (!hold) {
-            slide = arrow.y > up_threshold && arrow.y < down_threshold
-            if (slide) {
-                val percentage = up_threshold.minus(arrow.y).div(up_threshold - down_threshold)
-                val move = arrow.y - gravity_force
+        if (registration) {
+            if (slide(registration_up_threshold - rectangle.y)) {
+                val percentage = percentage(registration_up_threshold.toFloat())
+                if (percentage < limit) {
+                    val move = arrow.y - gravity_force
+                    if (rectangle.y > registration_up_threshold) {
+                        move(move)
+                        gravity = false
+                    } else if (move <= registration_up_threshold) {
+                        move(registration_up_threshold.toFloat())
+                    }
+                }
+            }
+        }
+        else if (!hold && !login) {
+            if (slide(up_threshold)) {
+                val percentage =  percentage(up_threshold)
+
                 if (percentage < limit.minus(1f)) {
+                    val move = arrow.y - gravity_force
                     if (move > up_threshold) {
                         move(move)
                         gravity = false
-                    }
-                    else if (move <= up_threshold) {
+                    } else if (move <= up_threshold) {
                         move(up_threshold)
                         login = true
                     }
                 }
             }
         }
+    }
+
+    private fun slideDown(limit : Float = 0f) {
+        val percentage =  percentage(up_threshold)
+
+        if (percentage < limit.minus(1f)) {
+            val move = arrow.y + gravity_force
+            if (move < up_threshold) {
+                move(move)
+            } else if (move <= up_threshold) {
+                move(up_threshold)
+                gravity = false
+            }
+        }
+
     }
 
     private fun gravity() {
@@ -184,29 +228,16 @@ class Arrow(context : Context,
         }
     }
 
-    fun backPressed() : Boolean {
-        if(login) {
-            gravity = true
-            return false
-        } else if (registration) {
-            registration = false
-            login = true
-            return true
-        }
-        return false
-    }
-
-
-    fun registration(active : Boolean = true) {
-        if(active) {
+    fun registration() {
             login = false
             registration = true
-        }
-        else {
-            login = true
-            registration = false
-        }
+    }
 
+    fun backPressed()  {
+        if (registration) {
+            registration = false
+            login = true
+        }
     }
 
 }

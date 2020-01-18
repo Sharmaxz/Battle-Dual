@@ -4,17 +4,50 @@
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
 
 
-    <!-- Registration -->
-    <!-- Sign In -->
+    <!-- region Registration -->
+        <!-- region Fragment Rectangle -->
+        <dimen name="registration_rectangle_marginTop">500dp</dimen>
+        <dimen name="registration_rectangle_padding">36dp</dimen>
+        <!-- endregion Fragment Rectangle -->
+        <dimen name="registration_font">22sp</dimen>
 
-    <!-- fragment rectangle -->
-    <dimen name="registration_rectangle_marginTop">500dp</dimen>
-    <dimen name="registration_rectangle_padding">36dp</dimen>
-    <!-- END fragment rectangle -->
+        <!-- region Sign In -->
+            <!-- region Sign In Text -->
+            <dimen name="registration_sign_in_font">36sp</dimen>
+            <!-- endregion Sign In Text -->
 
-    <!-- FONT -->
-    <dimen name="registration_sign_in">36sp</dimen>
+            <!-- region Error Text -->
+            <dimen name="registration_error_font">16sp</dimen>
+            <!-- endregion Error Text -->
 
-    <!-- END FONT -->
+            <!-- region Email TextInputLayout -->
+            <dimen name="registration_email_layout_marginTop">10dp</dimen>
+            <!-- endregion Email TextInputLayout -->
+
+            <!-- region Password TextInputLayout -->
+            <dimen name="registration_password_layout_marginTop">15dp</dimen>
+            <!-- endregion Password TextInputLayout -->
+
+            <!-- region Login Button -->
+            <dimen name="registration_button_font">30sp</dimen>
+            <dimen name="registration_button_marginTop">25dp</dimen>
+            <!-- endregion Login Button -->
+
+            <!-- region Create Button -->
+            <dimen name="registration_button_create_font">22sp</dimen>
+            <dimen name="registration_button_create_marginTop">15dp</dimen>
+            <!-- endregion Create Button -->
+
+        <!-- endregion Sign In -->
+
+        <!-- region Sign Up -->
+            <dimen name="registration_sign_up_form_height">400dp</dimen>
+
+            <!-- region Sign In Text -->
+            <dimen name="registration_sign_up_font">36sp</dimen>
+             <!-- endregion Sign In Text -->
+
+        <!-- endregion Sign Up -->
+    <!-- endregion Registration -->
 
 </resources>

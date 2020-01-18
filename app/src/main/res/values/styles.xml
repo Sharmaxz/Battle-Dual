@@ -22,6 +22,9 @@
         <item name="boxBackgroundMode">filled</item>
         <item name="boxBackgroundColor">@color/lightGray</item>
         <item name="boxCollapsedPaddingTop">0dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:lines">1</item>
+        <item name="android:singleLine">true</item>
     </style>
 
 
