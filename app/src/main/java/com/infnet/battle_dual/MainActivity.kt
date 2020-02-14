@@ -22,8 +22,7 @@ class MainActivity : AppCompatActivity() {
         val session = SessionManager(this)
 
         if(session.isLogged()) {
-            println("Oh YAAAY!")
-//            val intent = Intent(this, RegistrationActivity::class.java)
+//            val intent = Intent(this, CreationActivity::class.java)
 //            startActivity(intent)
             session.delete()
         }
@@ -33,6 +32,5 @@ class MainActivity : AppCompatActivity() {
             finish()
        }
     }
-
 }
 

@@ -8,11 +8,14 @@ import android.widget.ImageView
 import com.infnet.battle_dual.R
 import android.util.DisplayMetrics
 import android.annotation.SuppressLint
+import android.os.Handler
 import android.view.View
 import com.infnet.battle_dual.shared.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.infnet.battle_dual.settings.CreditsActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.infnet.battle_dual.registration.anim.Arrow
 import com.infnet.battle_dual.registration.fragments.LoginFragment
 import com.infnet.battle_dual.registration.fragments.RegistrationFragment
@@ -27,6 +30,16 @@ class RegistrationActivity : AppCompatActivity() {
     private var metrics : DisplayMetrics? = null
     private lateinit var arrow : Arrow
 
+
+    private var delayHandler : Handler = Handler()
+
+    private val registrationRunnable : Runnable = Runnable {
+        val registration : Fragment = RegistrationFragment();
+        fragmentManager.beginTransaction().replace(R.id.rectangle_form, registration, null).addToBackStack(null).commit()
+        arrow.registration()
+        windowManager.defaultDisplay.getMetrics(metrics)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         metrics = resources.displayMetrics
@@ -38,6 +51,7 @@ class RegistrationActivity : AppCompatActivity() {
 
         //Fragment Login
         login()
+
     }
 
     override fun onResume() {
@@ -95,16 +109,14 @@ class RegistrationActivity : AppCompatActivity() {
     //region Fragments
 
     private fun login() {
+        delayHandler.removeCallbacks(registrationRunnable)
         val login = LoginFragment()
         fragmentManager.beginTransaction().replace(R.id.rectangle_form, login).commit()
         windowManager.defaultDisplay.getMetrics(metrics)
     }
 
     fun registration() {
-        val registration = RegistrationFragment()
-        fragmentManager.beginTransaction().replace(R.id.rectangle_form, registration, null).addToBackStack(null).commit()
-        arrow.registration()
-        windowManager.defaultDisplay.getMetrics(metrics)
+        delayHandler.post(registrationRunnable)
     }
 
     //endregion
