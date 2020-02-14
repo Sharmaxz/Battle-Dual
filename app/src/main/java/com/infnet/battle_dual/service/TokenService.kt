@@ -31,9 +31,13 @@ class TokenService {
             "password" to password
         )
         asyncRequest("POST", url, headers=header, data=data) {
-            println("Status Code: $statusCode")
-            println("Response Text: $text")
-            //AppPreferences.Bearer()
+            val map = mutableMapOf<String, Any>()
+            text.replace("{", "").replace("}", "").split(",").forEach { it ->
+                val textSplited = it.split(":")
+                map[textSplited[0].replace(" ", "")] = textSplited[1].replace("\"", "")
+            }
+
+            println(map["access_token"])
         }
     }
 
