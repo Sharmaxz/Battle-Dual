@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import com.infnet.battle_dual.registration.RegistrationActivity
+import com.infnet.battle_dual.service.TokenService
+import com.infnet.battle_dual.settings.AppPreferences
 import com.infnet.battle_dual.shared.DisplayManager
 import com.infnet.battle_dual.shared.DisplayMessage
 import com.infnet.battle_dual.shared.SessionManager
@@ -17,6 +19,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.requestWindowFeature(Window.FEATURE_NO_TITLE)
+
+        AppPreferences.init(this)
+        val a = TokenService()
+        a.post("Sharmaxz", "jpas0102")
+
 
         val display = DisplayManager(this)
         val session = SessionManager(this)
