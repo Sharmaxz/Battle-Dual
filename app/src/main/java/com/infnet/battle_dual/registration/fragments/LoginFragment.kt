@@ -9,7 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.infnet.battle_dual.R
+import com.infnet.battle_dual.model.User
 import com.infnet.battle_dual.registration.RegistrationActivity
+import com.infnet.battle_dual.service.TokenService
+import com.infnet.battle_dual.service.UserService
+import com.infnet.battle_dual.settings.AppPreferences
+import com.infnet.battle_dual.shared.SessionManager
 import kotlinx.android.synthetic.main.fragment_login_form.*
 
 import khttp.*
@@ -63,17 +68,18 @@ class LoginFragment : Fragment() {
             email.error = getString(R.string.login_error_email_empty)
             focusView = email
             cancel = true
-        } else if (!isEmailValid(emailStr)) {
-            email.error = getString(R.string.login_error_email)
-            focusView = email
-            cancel = true
         }
+//        } else if (!isEmailValid(emailStr)) {
+//            email.error = getString(R.string.login_error_email)
+//            focusView = email
+//            cancel = true
+//        }
 
         if (!cancel) {
             focusView = null
             GlobalScope.launch {
                 supervisorScope {
-                    login()
+                    login(emailStr, passwordStr)
                 }
             }
         } else {
@@ -85,50 +91,56 @@ class LoginFragment : Fragment() {
         return email.contains("@")
     }
 
-    private fun login() {
-        val r = get("https://httpstat.us/522")
-        when (r.statusCode) {
-            200 -> {
+    private fun login(nickname : String, password : String) {
+        val r =  TokenService.post(nickname, password)
 
+        if(r["response"] == 200) {
+            val user = UserService.get(nickname=nickname)
+
+            if (user::class.java.simpleName != "User") {
+                timeout()
+                unlock()
+            } else {
+                SessionManager.create(user as User)
+                (activity as RegistrationActivity).openCreation()
             }
-            522 -> {
-                activity?.runOnUiThread {
-                    timeout()
-                    unlock()
-                }
-            }
-            else -> {
-                activity?.runOnUiThread {
-                    error()
-                    unlock()
-                }
-            }
+        }
+        else if(r["response"] == 0) {
+            timeout()
+            unlock()
         }
     }
 
     private fun lock() {
-        email.isEnabled = false
-        password.isEnabled = false
-        btnLogin.isEnabled = false
-        btnRegistration.isEnabled = false
-        txtError.visibility = View.GONE
+        activity?.runOnUiThread(Runnable {
+            email.isEnabled = false
+            password.isEnabled = false
+            btnLogin.isEnabled = false
+            btnRegistration.isEnabled = false
+            txtError.visibility = View.GONE
+        })
     }
 
     private fun unlock() {
-        email.isEnabled = true
-        password.isEnabled = true
-        btnLogin.isEnabled = true
-        btnRegistration.isEnabled = true
+        activity?.runOnUiThread(Runnable {
+            email.isEnabled = true
+            password.isEnabled = true
+            btnLogin.isEnabled = true
+            btnRegistration.isEnabled = true
+        })
     }
 
     private fun timeout() {
-        txtError.visibility = View.VISIBLE
-        txtError.text = getString(R.string.login_error_timeout)
+        activity?.runOnUiThread(Runnable {
+            txtError.visibility = View.VISIBLE
+            txtError.text = getString(R.string.login_error_timeout)
+        })
     }
 
     private fun error() {
-        txtError.visibility = View.VISIBLE
-        txtError.text = getString(R.string.login_error)
+        activity?.runOnUiThread(Runnable {
+            txtError.visibility = View.VISIBLE
+            txtError.text = getString(R.string.login_error)
+        })
     }
-
 }

@@ -16,6 +16,7 @@ import com.infnet.battle_dual.settings.CreditsActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.infnet.battle_dual.creation.CreationActivity
 import com.infnet.battle_dual.registration.anim.Arrow
 import com.infnet.battle_dual.registration.fragments.LoginFragment
 import com.infnet.battle_dual.registration.fragments.RegistrationFragment
@@ -51,7 +52,6 @@ class RegistrationActivity : AppCompatActivity() {
 
         //Fragment Login
         login()
-
     }
 
     override fun onResume() {
@@ -103,6 +103,12 @@ class RegistrationActivity : AppCompatActivity() {
         intent = Intent(this, CreditsActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+    }
+
+    fun openCreation()  {
+        intent = Intent(this, CreationActivity::class.java)
+        startActivity(intent)
+        finish()
     }
     //endregion
 

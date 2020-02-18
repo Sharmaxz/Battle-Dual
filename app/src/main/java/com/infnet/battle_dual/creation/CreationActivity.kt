@@ -13,11 +13,11 @@ class CreationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //metrics = resources.displayMetrics
-        setContentView(R.layout.activity_registration)
+        setContentView(R.layout.activity_creation)
 
         //Toolbar
-        val toolbar = Toolbar(this, findViewById(R.id.toolbar), R.menu.menu)
-        toolbar.titleEnabled(false)
+//        val toolbar = Toolbar(this, findViewById(R.id.toolbar), R.menu.menu)
+//        toolbar.titleEnabled(false)
 
 
         //Room List
