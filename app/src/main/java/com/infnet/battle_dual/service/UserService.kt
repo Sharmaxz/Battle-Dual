@@ -30,6 +30,7 @@ object UserService {
                     map[textSplited[0]] = textSplited[1]
                 }
                 return User(nickname=map["nickname"]!!,
+                    email=map["email"]!!,
                     first_name=map["first_name"]!!,
                     last_name=map["last_name"]!!,
                     birthdate=map["birthdate"]!!
