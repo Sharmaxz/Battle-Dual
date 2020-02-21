@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.infnet.battle_dual.R
 import com.infnet.battle_dual.registration.RegistrationActivity
-import kotlinx.android.synthetic.main.fragment_login_form.*
+import kotlinx.android.synthetic.main.fragment_registration_form.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
@@ -41,17 +41,32 @@ class RegistrationFragment : Fragment() {
         password.error = null
 
         // Store values at the time of the login attempt.
-        val emailStr = email.text.toString()
-        val passwordStr = password.text.toString()
+        val first_name = first_name.text.toString()
+        val last_name = last_name.text.toString()
+        val nickname = nickname.text.toString()
+        val email = email.text.toString()
 
         var cancel = false
         var focusView : View? = null
 
-        if (TextUtils.isEmpty(passwordStr)) {
-            password.error = getString(R.string.login_error_password_empty)
+        if (TextUtils.isEmpty(password.text.toString())) {
+            password.error = getString(R.string.registration_error_password_empty)
             focusView = password
             cancel = true
         }
+
+        if(TextUtils.isEmpty(confirm_password.text.toString())) {
+            confirm_password.error = getString(R.string.registration_error_confirm_password_empty)
+            focusView = confirm_password
+            cancel = true
+        }
+
+        if(checkPassword(password.text.toString(), confirm_password.text.toString())) {
+            confirm_password.error = getString(R.string.registration_error_password_diff)
+            focusView = password
+            cancel = false
+        }
+
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(emailStr)) {
@@ -78,6 +93,13 @@ class RegistrationFragment : Fragment() {
 
     private fun isEmailValid(email: String): Boolean {
         return email.contains("@")
+    }
+
+    private fun checkPassword(password : String, confirm_password : String) : Boolean {
+        if (password == confirm_password) {
+            return true
+        }
+        return false
     }
 
     private fun lock() {

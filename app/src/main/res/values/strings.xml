@@ -32,6 +32,14 @@
                 <string name="registration_hint_confirm_password">Confirm Password</string>
                 <string name="registration_go_battle">GO TO THE BATTLE!</string>
 
+                <string name="registration_error">Email or password invalid.</string>
+                <string name="registration_error_timeout">Please check your connection.</string>
+                <string name="registration_error_email">The email was filled incorrectly!</string>
+                <string name="registration_error_email_empty">The email field can not be empty!</string>
+                <string name="registration_error_password_empty">The password field can not be empty!</string>
+                <string name="registration_error_confirm_password_empty">The confirm password field can not be empty!</string>
+                <string name="registration_error_password_diff">Passwords do not match!</string>
+
                 <!-- endregion Sign up -->
         <!-- endregion Registration -->
 

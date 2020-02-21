@@ -6,6 +6,18 @@
               android:layout_height="match_parent">
 
     <TextView
+            android:id="@+id/txtError"
+            android:text="@string/login_error"
+            android:textSize="@dimen/registration_error_font"
+            android:fontFamily="@font/agency_fb_bold"
+            android:visibility="gone"
+            android:textColor="@android:color/holo_red_light"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    <TextView
             android:text="@string/registration_sign_up"
             android:textSize="@dimen/registration_sign_up_font"
             android:fontFamily="@font/agency_fb_bold"
@@ -34,6 +46,7 @@
                     style="@style/AppTheme.FilledBox">
 
                 <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/first_name"
                         android:hint="@string/registration_hint_first_name"
                         android:textSize="@dimen/registration_font"
                         android:inputType="text"
@@ -58,6 +71,7 @@
                         style="@style/AppTheme.FilledBox">
 
                 <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/last_name"
                         android:hint="@string/registration_hint_last_name"
                         android:textSize="@dimen/registration_font"
                         android:inputType="text"
