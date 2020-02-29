@@ -12,11 +12,22 @@ object SignUpService {
 
     private const val url = "https://battle-dual.herokuapp.com/api/signup/"
 
-    fun post(nickname : String, email : String, password: String, firstName : String, LastName : String, birthdate: String) : Any {
+    fun post(first_name : String, last_name : String, nickname : String, email : String, password: String, birthdate: String = "0001-01-01") : Any {
+
+        val data = mapOf(
+            "first_name" to first_name,
+            "last_name" to last_name,
+            "nickname" to nickname,
+            "email" to email,
+            "password" to password,
+            "password" to password,
+            "birthdate" to birthdate
+        )
 
         val map = mutableMapOf<String, String>()
+
         try {
-            val response = get(url)
+            val response = get(url, data=data)
             if(response.statusCode == 201) {
                 response.text.replace("([{}\"\\[\\]])".toRegex(), "").split(",").forEach { it ->
                     val textSplited = it.split(":")

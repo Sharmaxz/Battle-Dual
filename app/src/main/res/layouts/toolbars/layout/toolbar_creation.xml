@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:background="@drawable/gradient_background">
+
+    <RelativeLayout android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="end">
+
+        <ImageView android:background="@drawable/ic_account_circle"
+                   android:layout_height="30dp"
+                   android:layout_width="30dp"
+                     android:gravity="end"/>
+
+        <ImageView android:id="@+id/point"
+                   android:background="@drawable/creation_rectangle"
+                   android:layout_width="80dp"
+                   android:layout_height="1dp"
+                   android:alpha="0.5"/>
+
+        <!--        <TextView-->
+<!--                android:text="1000 c"-->
+<!--                android:textColor="@color/colorAccent"-->
+<!--                android:textSize="20sp"-->
+<!--                android:fontFamily="@font/agency_fb"-->
+<!--                android:gravity="start"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_alignTop="@id/point"-->
+<!--                android:layout_alignBottom="@id/point"-->
+<!--                android:layout_alignLeft="@id/point"-->
+<!--                android:layout_alignRight="@id/point"/>-->
+
+
+    </RelativeLayout>
+
+    <TextView
+            android:text="BATTLE DUAL"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:fontFamily="@font/agency_fb_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/toolbar_title" />
+
+    <ImageView android:background="@drawable/ic_account_circle"
+               android:layout_height="30dp"
+               android:layout_marginEnd="10dp"
+               android:layout_width="30dp"
+               android:layout_gravity="end"/>
+
+</androidx.appcompat.widget.Toolbar>

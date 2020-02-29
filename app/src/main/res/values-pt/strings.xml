@@ -1,47 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Registration -->
+<!-- Registration -->
         <!-- Sign in -->
 
-        <string name="login_sign_in">ENTRAR</string>
-        <string name="login_hint_email">Email</string>
-        <string name="login_hint_password">Senha</string>
-        <string name="login_button">ENTRAR</string>
-        <string name="login_create"><u>Novo no battle? Crie uma conta já!</u></string>
+            <string name="login_sign_in">ENTRAR</string>
+            <string name="login_hint_email">Email</string>
+            <string name="login_hint_nickname">Usuário</string>
+            <string name="login_hint_password">Senha</string>
+            <string name="login_button">ENTRAR</string>
+            <string name="login_create"><u>Novo no battle? Crie uma conta já!</u></string>
 
-        <string name="login_error">Email ou senha inválidos.</string>
-        <string name="login_error_timeout">Por favor verifique sua conexão com a internet.</string>
-        <string name="login_error_email">O email foi preenchido incorretamente!</string>
-        <string name="login_error_email_empty">O email foi preenchido incorretamente!</string>
-        <string name="login_error_password_empty">>O campo da senha está vazio!</string>
-
+            <string name="login_error">Email ou senha inválidos.</string>
+            <string name="login_error_timeout">Por favor verifique sua conexão com a internet.</string>
+            <string name="login_error_email">O usuário foi preenchido incorretamente!</string>
+            <string name="login_error_email_empty">O usuário foi preenchido incorretamente!</string>
+            <string name="login_error_password_empty">>O campo da senha está vazio!</string>
 
         <!-- END Sign in -->
 
         <!-- Sign Up -->
 
-        <string name="login_sign_up">INSCREVE-SE</string>
-        <string name="registration_sign_up">CRIE SUA CONTA</string>
-        <string name="registration_hint_email">Email</string>
-        <string name="registration_hint_nickname">Nickname</string>
-        <string name="registration_hint_password">Senha</string>
-        <string name="registration_hint_confirm_password">Confirmção de senha</string>
-        <string name="registration_go_battle">VÁ A BATALHA!</string>
-        <string name="registration_hint_first_name">Nome</string>
-        <string name="registration_hint_last_name">Sobrenome</string>
+            <string name="login_sign_up">INSCREVE-SE</string>
+            <string name="registration_sign_up">CRIE SUA CONTA</string>
+            <string name="registration_hint_email">Email</string>
+            <string name="registration_hint_nickname">Usuário</string>
+            <string name="registration_hint_password">Senha</string>
+            <string name="registration_hint_confirm_password">Confirmção de senha</string>
+            <string name="registration_go_battle">VÁ A BATALHA!</string>
+            <string name="registration_hint_first_name">Nome</string>
+            <string name="registration_hint_last_name">Sobrenome</string>
 
-        <string name="registration_error">Email ou senha inválidos.</string>
-        <string name="registration_error_timeout">Por favor verifique sua conexão com a internet.</string>
-        <string name="registration_error_email">O email foi preenchido incorretamente!</string>
-        <string name="registration_error_email_empty">O email foi preenchido incorretamente!</string>
-        <string name="registration_error_password_empty">O campo da senha está vazio!</string>
-        <string name="registration_error_confirm_password_empty">O campo da confirmação de senha está vazio!</string>
-        <string name="registration_error_password_diff">as senhas não coincidem!</string>
+            <string name="registration_error">Email ou senha inválidos.</string>
+            <string name="registration_error_timeout">Por favor verifique sua conexão com a internet.</string>
+            <string name="registration_error_empty">O campo está vazio!</string>
+            <string name="registration_error_email">O email foi preenchido incorretamente!</string>
+            <string name="registration_error_password_diff">as senhas não coincidem!</string>
 
-
-    <!-- END Sign up -->
-    <!-- END Registration -->
+        <!-- END Sign up -->
+<!-- END Registration -->
 
 
 </resources>

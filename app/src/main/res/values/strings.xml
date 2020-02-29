@@ -8,14 +8,15 @@
 
                 <string name="login_sign_in">SIGN IN</string>
                 <string name="login_hint_email">Email</string>
+                <string name="login_hint_nickname">Nickname</string>
                 <string name="login_hint_password">Password</string>
                 <string name="login_button">LOGIN</string>
                 <string name="login_create"><u>New in the battle? Create an account!</u></string>
 
                 <string name="login_error">Email or password invalid.</string>
                 <string name="login_error_timeout">Please check your connection.</string>
-                <string name="login_error_email">The email was filled incorrectly!</string>
-                <string name="login_error_email_empty">The email field can not be empty!</string>
+                <string name="login_error_email">The nickname was filled incorrectly!</string>
+                <string name="login_error_email_empty">The nickname field can not be empty!</string>
                 <string name="login_error_password_empty">The password field can not be empty!</string>
                 <string name="login_sign_up">SIGN UP</string>
 
@@ -34,11 +35,9 @@
 
                 <string name="registration_error">Email or password invalid.</string>
                 <string name="registration_error_timeout">Please check your connection.</string>
+                <string name="registration_error_empty">The field can not be empty!</string>
                 <string name="registration_error_email">The email was filled incorrectly!</string>
-                <string name="registration_error_email_empty">The email field can not be empty!</string>
-                <string name="registration_error_password_empty">The password field can not be empty!</string>
-                <string name="registration_error_confirm_password_empty">The confirm password field can not be empty!</string>
-                <string name="registration_error_password_diff">Passwords do not match!</string>
+                <string name="registration_error_password_diff">Password does not match!</string>
 
                 <!-- endregion Sign up -->
         <!-- endregion Registration -->

@@ -16,8 +16,8 @@ class CreationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_creation)
 
         //Toolbar
-//        val toolbar = Toolbar(this, findViewById(R.id.toolbar), R.menu.menu)
-//        toolbar.titleEnabled(false)
+        val toolbar = Toolbar(this, findViewById(R.id.toolbar), R.menu.menu)
+        toolbar.titleEnabled(false)
 
 
         //Room List

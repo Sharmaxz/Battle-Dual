@@ -40,7 +40,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
-                    android:hint="@string/login_hint_email"
+                    android:hint="@string/login_hint_nickname"
                     android:textSize="@dimen/registration_font"
                     android:inputType="textEmailAddress"
                     android:fontFamily="@font/agency_fb"
@@ -60,7 +60,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password"
-                    android:inputType="textVisiblePassword"
+                    android:inputType= "textPassword"
                     android:hint="@string/login_hint_password"
                     android:textSize="@dimen/registration_font"
                     android:fontFamily="@font/agency_fb"

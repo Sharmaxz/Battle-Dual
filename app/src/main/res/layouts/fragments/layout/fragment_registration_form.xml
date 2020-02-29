@@ -167,7 +167,6 @@
 
     </LinearLayout>
 
-
     <Button
             android:id="@+id/btnRegistration"
             android:text="@string/registration_go_battle"
@@ -177,10 +176,8 @@
             android:background="@drawable/gradient_button"
             android:layout_margin="30dp"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_alignParentBottom="true">
+            android:layout_width="match_parent">
     </Button>
-
 
 </LinearLayout>
 
