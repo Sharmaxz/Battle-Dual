@@ -105,7 +105,11 @@ class LoginFragment : Fragment() {
                 (activity as RegistrationActivity).openCreation()
             }
         }
-        else if(r["response"] == 0) {
+        else if(r["response"] == 404){
+            error()
+            unlock()
+        }
+        else if(r["response"] == 0 || r["response"] == 400) {
             timeout()
             unlock()
         }

@@ -26,7 +26,7 @@ class CreationActivity : AppCompatActivity() {
 
     private fun room() {
 //        val adapter = RoomAdapter(this, rooms)
-//
+
 //        val listView = findViewById<ListView>(R.id.room_listview)
 //        listView.setAdapter(adapter)
     }
