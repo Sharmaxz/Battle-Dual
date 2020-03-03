@@ -2,37 +2,42 @@
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
                                    android:layout_width="match_parent"
                                    android:layout_height="wrap_content"
-                                   android:background="@drawable/gradient_background">
+                                   android:background="@drawable/gradient_background"
+                                   android:minHeight="?attr/actionBarSize">
 
-    <RelativeLayout android:layout_width="wrap_content"
+    <RelativeLayout android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_marginEnd="10dp"
-                    android:gravity="center_vertical"
                     android:layout_gravity="end">
 
         <ImageView android:background="@drawable/ic_account_circle"
                    android:layout_height="30dp"
                    android:layout_width="30dp"
-                     android:gravity="end"/>
+                   android:layout_alignParentEnd="true"
+                   android:layout_centerHorizontal="true"
+                   android:layout_centerVertical="true"
+                   android:layout_marginEnd="5dp"/>
 
         <ImageView android:id="@+id/point"
                    android:background="@drawable/creation_rectangle"
                    android:layout_width="80dp"
-                   android:layout_height="1dp"
-                   android:alpha="0.5"/>
+                   android:layout_height="20dp"
+                   android:alpha="0.5"
+                   android:layout_centerHorizontal="true"
+                   android:layout_centerVertical="true"/>
 
-        <!--        <TextView-->
-<!--                android:text="1000 c"-->
-<!--                android:textColor="@color/colorAccent"-->
-<!--                android:textSize="20sp"-->
-<!--                android:fontFamily="@font/agency_fb"-->
-<!--                android:gravity="start"-->
-<!--                android:layout_width="50dp"-->
-<!--                android:layout_height="50dp"-->
-<!--                android:layout_alignTop="@id/point"-->
-<!--                android:layout_alignBottom="@id/point"-->
-<!--                android:layout_alignLeft="@id/point"-->
-<!--                android:layout_alignRight="@id/point"/>-->
+        <TextView
+                android:text="1000 c"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/agency_fb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="40dp"/>
+
 
 
     </RelativeLayout>
@@ -46,11 +51,5 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:id="@+id/toolbar_title" />
-
-    <ImageView android:background="@drawable/ic_account_circle"
-               android:layout_height="30dp"
-               android:layout_marginEnd="10dp"
-               android:layout_width="30dp"
-               android:layout_gravity="end"/>
 
 </androidx.appcompat.widget.Toolbar>

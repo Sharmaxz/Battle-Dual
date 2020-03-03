@@ -22,7 +22,6 @@
             </intent-filter>
         </activity>
 
-
         <activity android:name=".registration.RegistrationActivity"
                   android:screenOrientation="portrait">
         </activity>
