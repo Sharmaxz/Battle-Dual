@@ -12,8 +12,12 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:background="@drawable/gradient_background_darker"
-                                                android:minHeight="?attr/actionBarSize"
-                                            />
+                                                android:minHeight="?attr/actionBarSize"/>
+
+    <androidx.viewpager.widget.ViewPager android:id="@+id/pager"
+                                         android:layout_width="match_parent"
+                                         android:layout_height="fill_parent" />
+
 
 
 

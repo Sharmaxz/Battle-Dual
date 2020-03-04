@@ -40,5 +40,20 @@
         <!-- END Sign up -->
 <!-- END Registration -->
 
+<!-- region Creation -->
+    <!-- region Room -->
+    <string name="creation_room">SALAS</string>
+
+
+    <!-- endregion Room -->
+
+    <!-- region Rank -->
+    <string name="creation_rank">LIDERES</string>
+
+
+    <!-- endregion Rank -->
+
+<!-- endregion Creation -->
+
 
 </resources>
