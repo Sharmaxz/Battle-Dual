@@ -14,7 +14,7 @@ open class RoomAdapter(context : Context,
     private val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
-        val rowView = inflater.inflate(R.layout.listview_item, parent, false)
+        val rowView = inflater.inflate(R.layout.creation_list, parent, false)
 
         return rowView
     }
