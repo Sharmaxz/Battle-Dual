@@ -1,13 +1,10 @@
 package com.infnet.battle_dual.creation
 
-import android.annotation.SuppressLint
-import android.net.Uri
 import android.os.Bundle
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
 import com.infnet.battle_dual.R
-import com.infnet.battle_dual.creation.fragments.CreationPageAdapter
+import com.infnet.battle_dual.creation.adapters.CreationAdapter
 import com.infnet.battle_dual.creation.fragments.RankFragment
 import com.infnet.battle_dual.creation.fragments.RoomFragment
 import com.infnet.battle_dual.shared.Toolbar
@@ -29,7 +26,8 @@ class CreationActivity : AppCompatActivity() {
         tablayout.addTab(tablayout.newTab().setText(R.string.creation_rank))
         tablayout.tabGravity = TabLayout.GRAVITY_CENTER
 
-        val adapter = CreationPageAdapter(supportFragmentManager)
+        val adapter =
+            CreationAdapter(supportFragmentManager)
         adapter.addFragment(RoomFragment(), getString(R.string.creation_room))
         adapter.addFragment(RankFragment(), getString(R.string.creation_rank))
         pager.adapter = adapter

@@ -7,6 +7,6 @@ class User (val nickname : String = "",
             val first_name : String = "",
             val last_name : String = "",
             val birthdate : String = ""
-            ) : Serializable {
+            ) : Serializable
 
-}
+

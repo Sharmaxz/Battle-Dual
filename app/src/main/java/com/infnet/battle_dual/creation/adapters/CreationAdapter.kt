@@ -1,11 +1,11 @@
-package com.infnet.battle_dual.creation.fragments
+package com.infnet.battle_dual.creation.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.FragmentStatePagerAdapter
 
-open class CreationPageAdapter(fragmentManager : FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+open class CreationAdapter(fragmentManager : FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 
     val fragments : MutableList<Fragment> = ArrayList()
     val titles : MutableList<String> = ArrayList()

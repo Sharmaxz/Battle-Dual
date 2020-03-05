@@ -1,5 +1,9 @@
 package com.infnet.battle_dual.model
 
-class Room() {
+import java.io.Serializable
 
-}
+class Room(val name : String = "",
+           val game : String = ""
+           ) : Serializable
+
+
