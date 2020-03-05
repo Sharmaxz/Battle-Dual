@@ -56,5 +56,20 @@
         <!-- endregion Rank -->
 <!-- endregion Creation -->
 
+<!-- region Credits -->
+        <string name="credits_po">PO and Doc</string>
+        <string name="credits_professor">Professor</string>
+        <string name="credits_programmers">Programmers</string>
+        <string name="credits_designer">Designers</string>
+        <string name="credits_thank">Thanks</string>
+
+        <string name="credits_shadow" translatable="false">Sharmaxz</string>
+        <string name="credits_elian" translatable="false">Elian</string>
+        <string name="credits_iasmim" translatable="false">Iasmim</string>
+        <string name="credits_matheus" translatable="false">Matheus</string>
+        <string name="credits_jonh" translatable="false">Jonh</string>
+        <string name="credits_thiago" translatable="false">Thiago</string>
+<!-- endregion Credits -->
+
 
 </resources>

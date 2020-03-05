@@ -16,8 +16,6 @@ import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
 
-    private var displayMessage : DisplayMessage = DisplayMessage(this)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.requestWindowFeature(Window.FEATURE_NO_TITLE)

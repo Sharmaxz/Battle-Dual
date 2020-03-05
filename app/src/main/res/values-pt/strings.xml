@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<!-- Registration -->
-        <!-- Sign in -->
+<!-- region Registration -->
+        <!-- region Sign in -->
 
             <string name="login_sign_in">ENTRAR</string>
             <string name="login_hint_email">Email</string>
@@ -17,9 +17,9 @@
             <string name="login_error_email_empty">O usuário foi preenchido incorretamente!</string>
             <string name="login_error_password_empty">>O campo da senha está vazio!</string>
 
-        <!-- END Sign in -->
+        <!-- endregion Sign in -->
 
-        <!-- Sign Up -->
+        <!-- region Sign Up -->
 
             <string name="login_sign_up">INSCREVE-SE</string>
             <string name="registration_sign_up">CRIE SUA CONTA</string>
@@ -37,8 +37,8 @@
             <string name="registration_error_email">O email foi preenchido incorretamente!</string>
             <string name="registration_error_password_diff">as senhas não coincidem!</string>
 
-        <!-- END Sign up -->
-<!-- END Registration -->
+        <!-- endregion Sign up -->
+<!-- endregion Registration -->
 
 <!-- region Creation -->
     <!-- region Room -->
@@ -55,5 +55,12 @@
 
 <!-- endregion Creation -->
 
+<!-- region Credits -->
+    <string name="credits_po">PO e Doc</string>
+    <string name="credits_professor">Professor</string>
+    <string name="credits_programmers">Programadores</string>
+    <string name="credits_designer">Designers</string>
+    <string name="credits_thank">Obrigado</string>
+<!-- endregion Credits -->
 
 </resources>
