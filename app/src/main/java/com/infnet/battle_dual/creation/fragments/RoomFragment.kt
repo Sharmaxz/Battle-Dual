@@ -8,8 +8,15 @@ import android.view.ViewGroup
 import com.infnet.battle_dual.R
 import com.infnet.battle_dual.creation.adapters.RoomAdapter
 import com.infnet.battle_dual.model.Room
+import com.infnet.battle_dual.model.User
+import com.infnet.battle_dual.registration.RegistrationActivity
 import com.infnet.battle_dual.service.RoomService
+import com.infnet.battle_dual.service.UserService
+import com.infnet.battle_dual.shared.SessionManager
 import kotlinx.android.synthetic.main.fragment_creation_room.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.supervisorScope
 
 class RoomFragment : Fragment() {
 
@@ -21,11 +28,21 @@ class RoomFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        list()
+        GlobalScope.launch {
+            supervisorScope {
+                list()
+            }
+        }
     }
 
     fun list() {
         val rooms = RoomService.get()
+//        if (rooms::class.java.simpleName != "User") {
+//
+//        } else {
+//            SessionManager.create(user as User)
+//            (activity as RegistrationActivity).openCreation()
+//        }
         val adapter = RoomAdapter(context!!, rooms as MutableList<Room>)
         listview.adapter = adapter
         listview.setOnItemClickListener { parent, view, position, id ->

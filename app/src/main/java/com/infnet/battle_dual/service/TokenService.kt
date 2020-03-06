@@ -18,12 +18,6 @@ object TokenService {
     private val url = "https://battle-dual.herokuapp.com/o/token/"
     private val header = mapOf("Content-Type" to "application/x-www-form-urlencoded")
 
-    private fun asyncRequest(method: String, url: String, headers: Map<String, String> = mapOf(), params: Map<String, String> = mapOf(), data: Any? = null, json: Any? = null, auth: Authorization? = null, cookies: Map<String, String>? = null, timeout: Double = DEFAULT_TIMEOUT, allowRedirects: Boolean? = null, stream: Boolean = false, files: List<FileLike> = listOf(), callback: Response.() -> Unit): Unit {
-        thread {
-            callback(khttp.request(method, url, headers, params, data, json, auth, cookies, timeout, allowRedirects, stream, files))
-        }
-    }
-
     fun post(nickname : String, password: String) : MutableMap<String, Any> {
         val data = mapOf(
             "client_secret" to AppPreferences.env["CLIENT_SECRET_KEY"],
@@ -62,23 +56,7 @@ object TokenService {
             )
         }
 
-
         return result
-
-
-//        asyncRequest("POST", url, headers=header, data=data)  {
-//            if(statusCode == 200) {
-//                val map = mutableMapOf<String, String>()
-//                text.replace("{", "").replace("}", "").replace("\"", "").split(",").forEach { it ->
-//                    val textSplited = it.split(":")
-//                    map[textSplited[0]] = textSplited[1]
-//                }
-//                AppPreferences.bearer(map["access_token"] as String)
-//            }
-//            else if(statusCode == 502) {
-//            }
-//        }
-
 
     }
 

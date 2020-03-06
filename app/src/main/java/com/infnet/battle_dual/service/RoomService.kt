@@ -1,9 +1,13 @@
 package com.infnet.battle_dual.service
 
+import com.infnet.battle_dual.model.Room
 import com.infnet.battle_dual.settings.AppPreferences
 import khttp.*
 import java.lang.Exception
 import java.util.*
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+
 
 object RoomService {
 
@@ -13,15 +17,15 @@ object RoomService {
         val header = mapOf("Authorization" to "Bearer ${AppPreferences.env["BEARER"]}")
 
         val map = mutableMapOf<String, String>()
+        var rooms = mutableListOf<Room>()
         var result = mutableMapOf<String, Any>()
         try {
             val response = get(url, headers=header)
             if(response.statusCode == 200) {
-                response.text.replace("([{}\"\\[\\]])".toRegex(), "").split(",").forEach { it ->
-                    val textSplited = it.split(":")
-                    map[textSplited[0]] = textSplited[1]
-                }
-
+                val gson = Gson()
+                val itemType = object : TypeToken<List<Room>>() {}.type
+                val a = gson.fromJson<List<Room>>(response.text, itemType)
+                println(a)
             }
             else {
                 result = mutableMapOf(

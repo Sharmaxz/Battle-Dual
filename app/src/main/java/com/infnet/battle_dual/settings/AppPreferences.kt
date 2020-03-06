@@ -28,11 +28,14 @@ object AppPreferences  {
         } else {
            env["CLIENT_SECRET_KEY"] = prefs.getString("CLIENT_SECRET_KEY", "").toString()
            env["CLIENT_PUBLIC_KEY"] = prefs.getString("CLIENT_PUBLIC_KEY", "").toString()
+           env["BEARER"] = prefs.getString("BEARER", "").toString()
         }
     }
 
     fun bearer(bearer : String) {
         env["BEARER"] = bearer
+        editor.putString("BEARER", bearer)
+        editor.commit()
     }
 
     private fun getPreferences() : MutableMap<String, *> {

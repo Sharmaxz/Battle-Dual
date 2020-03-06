@@ -26,8 +26,7 @@ class CreationActivity : AppCompatActivity() {
         tablayout.addTab(tablayout.newTab().setText(R.string.creation_rank))
         tablayout.tabGravity = TabLayout.GRAVITY_CENTER
 
-        val adapter =
-            CreationAdapter(supportFragmentManager)
+        val adapter = CreationAdapter(supportFragmentManager)
         adapter.addFragment(RoomFragment(), getString(R.string.creation_room))
         adapter.addFragment(RankFragment(), getString(R.string.creation_rank))
         pager.adapter = adapter
