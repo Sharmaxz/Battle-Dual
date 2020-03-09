@@ -12,8 +12,4 @@ class HashActivity : AppCompatActivity() {
 
     }
 
-    override fun onResume() {
-
-    }
-
 }
