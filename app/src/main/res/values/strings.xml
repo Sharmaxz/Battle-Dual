@@ -45,7 +45,9 @@
 <!-- region Creation -->
         <!-- region Room -->
         <string name="creation_room">ROOMS</string>
-
+        <string name="creation_for">For</string>
+        <string name="creation_turn">YOUR TURN!</string>
+        <string name="creation_is_over">IS OVER</string>
 
         <!-- endregion Room -->
 

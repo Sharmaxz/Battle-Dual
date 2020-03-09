@@ -21,19 +21,20 @@ object SessionManager {
     private const val PRIVATE_MODE = 0
     private const val PREF_NAME = "session-pref"
 
-    private lateinit var user : User
+    lateinit var user : User
 
     fun init(context : Context) {
         this.context = context
         this.prefs = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
         this.editor = this.prefs.edit()
+        user = gson.fromJson(prefs.getString("user", ""), User::class.java)
     }
 
     fun create(user : User) {
+        this.user = user
         val userSerialized = gson.toJson(user)
         editor.putString("user", userSerialized)
         editor.commit()
-        //gson.fromJson(userSerialized, User::class.java)
     }
 
     fun update(attribute : Any, value : Any) {

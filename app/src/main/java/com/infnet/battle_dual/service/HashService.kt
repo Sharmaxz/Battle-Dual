@@ -1,28 +1,28 @@
 package com.infnet.battle_dual.service
 
-import com.infnet.battle_dual.model.Room
-import com.infnet.battle_dual.settings.AppPreferences
 import khttp.*
-import java.lang.Exception
 import java.util.*
+import java.lang.Exception
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.infnet.battle_dual.model.Hash
+import com.infnet.battle_dual.settings.AppPreferences
 
 
-object RoomService {
+object HashService {
 
-    private const val url = "https://battle-dual.herokuapp.com/api/room/"
+    private const val url = "https://battle-dual.herokuapp.com/api/hash/"
 
-    fun get() : Any {
+    fun get(hash : Int) : Any {
+        val url = this.url + hash.toString() + "/"
         val header = mapOf("Authorization" to "Bearer ${AppPreferences.env["BEARER"]}")
-        var result: MutableMap<String, Any>
 
+        var result: MutableMap<String, Any>
         try {
             val response = get(url, headers=header)
             if(response.statusCode == 200) {
                 val gson = Gson()
-                val itemType = object : TypeToken<List<Room>>() {}.type
-                return gson.fromJson<List<Room>>(response.text, itemType)
+                return gson.fromJson(response.text, Hash::class.java)
             }
             else {
                 result = mutableMapOf(

@@ -63,7 +63,7 @@ class CreditsActivity : AppCompatActivity() {
             intent.setPackage("com.android.chrome");
             startActivity(intent)
         } catch (e: ActivityNotFoundException) { // Chrome is not installed
-            DisplayMessage(this).show("Browser not found", "long")
+            DisplayMessage.show("Browser not found", "long")
             intent.setPackage(null);
         }
     }

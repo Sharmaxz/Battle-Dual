@@ -31,6 +31,7 @@ android {
             res.srcDirs =
                     [
                             file("src/main/res/layouts/").listFiles(),
+                            file("src/main/res/drawables/drawable/games/").listFiles(),
                             file("src/main/res/anims/").listFiles(),
                             'src/main/res/anims/',
                             'src/main/res/layouts',

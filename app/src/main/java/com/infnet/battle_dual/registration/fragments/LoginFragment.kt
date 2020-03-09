@@ -17,7 +17,6 @@ import com.infnet.battle_dual.settings.AppPreferences
 import com.infnet.battle_dual.shared.SessionManager
 import kotlinx.android.synthetic.main.fragment_login_form.*
 
-import khttp.*
 import kotlinx.coroutines.*
 
 class LoginFragment : Fragment() {

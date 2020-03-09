@@ -43,7 +43,9 @@
 <!-- region Creation -->
     <!-- region Room -->
     <string name="creation_room">SALAS</string>
-
+    <string name="creation_for">Por</string>
+    <string name="creation_turn">SUA VEZ!</string>
+    <string name="creation_is_over">ACABOU</string>
 
     <!-- endregion Room -->
 

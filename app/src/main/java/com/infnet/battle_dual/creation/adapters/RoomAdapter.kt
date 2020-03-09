@@ -7,24 +7,44 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.infnet.battle_dual.model.Room
+import com.infnet.battle_dual.shared.SessionManager
+import kotlinx.android.synthetic.main.creation_list.view.*
 
-open class RoomAdapter(context : Context,
-                       rooms : MutableList<Room>) : BaseAdapter() {
+open class RoomAdapter(private val context : Context,
+                       private val rooms : List<Room>) : BaseAdapter() {
 
     private val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
         val rowView = inflater.inflate(R.layout.creation_list, parent, false)
 
+        val room = getItem(position) as Room
+        rowView.title.text = room.name
+        rowView.owner.text = context.getString(R.string.creation_for) + " " + room.owner_label
+
+        when {
+            room.turn == SessionManager.user.nickname -> {
+                rowView.turn.visibility = View.VISIBLE
+                rowView.turn.text = context.getString(R.string.creation_turn)
+            }
+            room.end -> {
+                rowView.turn.visibility = View.VISIBLE
+                rowView.turn.text = context.getString(R.string.creation_is_over)
+            }
+            else -> {
+                rowView.turn.visibility = View.GONE
+            }
+        }
+
         return rowView
     }
 
     override fun getCount(): Int {
-        return 1
+        return rooms.size
     }
 
     override fun getItem(position: Int): Any {
-        return 'a'
+        return rooms[position]
     }
 
     override fun getItemId(position: Int): Long {
