@@ -9,8 +9,8 @@ import com.infnet.battle_dual.creation.adapters.CreationAdapter
 import com.infnet.battle_dual.creation.fragments.RankFragment
 import com.infnet.battle_dual.creation.fragments.RoomFragment
 import com.infnet.battle_dual.games.hash.HashActivity
+import com.infnet.battle_dual.model.Hash
 import com.infnet.battle_dual.model.Room
-import com.infnet.battle_dual.model.User
 import com.infnet.battle_dual.registration.RegistrationActivity
 import com.infnet.battle_dual.service.HashService
 import com.infnet.battle_dual.service.UserService
@@ -45,7 +45,6 @@ class CreationActivity : AppCompatActivity() {
         tablayout.setupWithViewPager(pager)
     }
 
-
     fun selectedRoom(room : Room) {
         GlobalScope.launch {
             supervisorScope {
@@ -61,7 +60,7 @@ class CreationActivity : AppCompatActivity() {
 
         runOnUiThread(kotlinx.coroutines.Runnable {
             if(hash::class.java.simpleName == "Hash") {
-                    openHashActivity(room)
+                    openHashActivity(room, hash as Hash)
             }
             else {
                 DisplayMessage.show("It wasn't possible to start the game.","long")
@@ -69,10 +68,11 @@ class CreationActivity : AppCompatActivity() {
         })
     }
 
-    private fun openHashActivity(room : Room)
+    private fun openHashActivity(room : Room, hash : Hash)
     {
         intent = Intent(this, HashActivity::class.java)
         intent.putExtra("ROOM", room)
+        intent.putExtra("HASH", hash)
         startActivity(intent)
     }
 }

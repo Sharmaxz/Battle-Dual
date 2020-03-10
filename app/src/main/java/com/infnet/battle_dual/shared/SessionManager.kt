@@ -27,7 +27,10 @@ object SessionManager {
         this.context = context
         this.prefs = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
         this.editor = this.prefs.edit()
-        user = gson.fromJson(prefs.getString("user", ""), User::class.java)
+        var user = prefs.getString("user", "")
+        if (user != "") {
+            this.user = gson.fromJson(user, User::class.java)
+        }
     }
 
     fun create(user : User) {

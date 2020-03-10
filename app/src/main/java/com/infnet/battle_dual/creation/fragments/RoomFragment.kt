@@ -45,6 +45,7 @@ class RoomFragment : Fragment() {
                 (activity as CreationActivity).selectedRoom((rooms as MutableList<Room>)[position])
             }
         } else {
+
         }
     }
 
