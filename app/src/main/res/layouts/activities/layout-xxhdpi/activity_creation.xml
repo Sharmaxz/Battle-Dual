@@ -20,9 +20,28 @@
 
     />
 
-    <androidx.viewpager.widget.ViewPager android:id="@+id/pager"
-                                         android:layout_width="match_parent"
-                                         android:layout_height="fill_parent" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <androidx.viewpager.widget.ViewPager android:id="@+id/pager"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"/>
+
+        <Button
+                android:id="@+id/btnCreate"
+                android:text="@string/creation_create"
+                android:textSize="@dimen/registration_button_font"
+                android:textColor="@color/white"
+                android:fontFamily="@font/agency_fb"
+                android:background="@drawable/gradient_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+        />
+
+    </RelativeLayout>
 
 </LinearLayout>

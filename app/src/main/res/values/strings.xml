@@ -43,18 +43,16 @@
 <!-- endregion Registration -->
 
 <!-- region Creation -->
+        <string name="creation_create">CREATE</string>
         <!-- region Room -->
         <string name="creation_room">ROOMS</string>
         <string name="creation_for">For</string>
         <string name="creation_turn">YOUR TURN!</string>
         <string name="creation_is_over">IS OVER</string>
-
         <!-- endregion Room -->
 
         <!-- region Rank -->
         <string name="creation_rank">RANK</string>
-
-
         <!-- endregion Rank -->
 <!-- endregion Creation -->
 
