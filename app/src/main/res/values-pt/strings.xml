@@ -65,4 +65,13 @@
     <string name="credits_thank">Obrigado</string>
 <!-- endregion Credits -->
 
+<!-- region Hash -->
+    <string name="hash_title">SEM TITUTLO</string>
+    <string name="hash_your_turn">SEU TURNO!</string>
+    <string name="hash_wait_turn">ESPERANDO PELO\nOUTRO JOGADOR!</string>
+    <string name="hash_won">VOCÊ GANHOU!</string>
+    <string name="hash_lose">VOCÊ PERDEU!</string>
+    <string name="hash_draw">DEU VELHA!</string>
+<!-- endregion Hash -->
+
 </resources>

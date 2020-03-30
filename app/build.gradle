@@ -8,12 +8,12 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
-        applicationId "com.infnet.battle_dual"
+        applicationId "com.sharmaxz.battle_dual"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-        multiDexEnabled false
+        versionCode 2
+        versionName "0.1.2"
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -40,6 +40,11 @@ android {
                             'src/main/res',
                     ]
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 

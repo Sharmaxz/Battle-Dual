@@ -7,4 +7,302 @@
 
     <include android:id="@+id/toolbar" layout="@layout/toolbar_back"/>
 
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_gravity="center_horizontal">
+
+        <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/credits_po"
+                        android:fontFamily="@font/agency_fb_bold"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="#9C27B0"
+                        android:textSize="30sp" />
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/credits_shadow"
+                        android:fontFamily="@font/agency_fb"
+                        android:onClick="shadow"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/credits_elian"
+                        android:fontFamily="@font/agency_fb"
+                        android:onClick="elian"
+                        android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/credits_iasmim"
+                        android:fontFamily="@font/agency_fb"
+                        android:onClick="iasmim"
+                        android:textSize="24sp" />
+            </TableRow>
+
+        </TableLayout>
+
+        <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="0dp"
+                android:orientation="vertical">
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/agency_fb_bold"
+                        android:text="@string/credits_professor"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="#9C27B0"
+                        android:textSize="30sp" />
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/agency_fb"
+                        android:text="@string/credits_jonh"
+                        android:onClick="jonh"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_gravity="center_horizontal">
+
+        <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/agency_fb_bold"
+                        android:text="@string/credits_programmers"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="#9C27B0"
+                        android:textSize="30sp" />
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/agency_fb"
+                        android:text="@string/credits_shadow"
+                        android:onClick="shadow"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/agency_fb"
+                        android:text="@string/credits_elian"
+                        android:onClick="elian"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="0dp"
+                android:orientation="vertical">
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/agency_fb_bold"
+                        android:text="@string/credits_designer"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="#9C27B0"
+                        android:textSize="30sp" />
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/agency_fb"
+                        android:text="@string/credits_shadow"
+                        android:onClick="shadow"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/agency_fb"
+                        android:text="@string/credits_iasmim"
+                        android:onClick="iasmim"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/agency_fb"
+                        android:text="@string/credits_matheus"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal">
+
+
+        <TableLayout
+                android:id="@+id/tableLayout5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="0dp"
+                android:orientation="vertical">
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/agency_fb_bold"
+                        android:text="@string/credits_thank"
+                        android:textAlignment="center"
+                        android:textColor="#9C27B0"
+                        android:textSize="30sp" />
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/agency_fb"
+                        android:text="@string/credits_thiago"
+                        android:onClick="thiago"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+            </TableRow>
+
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp">
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_launcher_foreground"
+                        android:onClick="infnet"/>
+            </TableRow>
+
+        </TableLayout>
+
+    </RelativeLayout>
+
 </LinearLayout>
+
+

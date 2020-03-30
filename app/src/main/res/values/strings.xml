@@ -73,5 +73,16 @@
         <string name="credits_thiago" translatable="false">Thiago</string>
 <!-- endregion Credits -->
 
+<!-- region Hash -->
+        <string name="hash_title">NO TITLE</string>
+        <string name="hash_your_turn">YOUR TURN!</string>
+        <string name="hash_wait_turn">WAITING FOR THE\nOTHER PLAYER!</string>
+        <string name="hash_won">YOU WON!</string>
+        <string name="hash_lose">YOU LOSE!</string>
+        <string name="hash_draw">DRAW!</string>
+
+<!-- endregion Hash -->
+
+
 
 </resources>

@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   android:layout_width="match_parent"
+                                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
                                                    android:background="@drawable/gradient_background">
 
-    <include android:id="@+id/toolbar" layout="@layout/toolbar_back"/>
+    <TextView android:id="@+id/name"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/hash_title"
+              android:textSize="46sp"
+              android:textColor="@color/white"
+              android:textAlignment="center"
+              android:fontFamily="@font/agency_fb"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+
+              android:layout_marginTop="16dp"/>
+
+    <TextView android:id="@+id/turn"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/hash_your_turn"
+              android:textSize="36sp"
+              android:textColor="@color/white"
+              android:textAlignment="center"
+              android:fontFamily="@font/agency_fb"
+              app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintHorizontal_bias="0.498"
+              android:layout_marginBottom="80dp"/>
 
     <TableLayout
             android:layout_width="wrap_content"
@@ -15,7 +41,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/tableLayout">
 
         <TableRow
                 android:gravity="center"
@@ -26,6 +52,9 @@
                     android:id="@+id/btn1x1"
                     android:layout_width="wrap_content"
                     android:layout_height="40pt"
+                    android:textSize="42sp"
+                    android:textColor="@color/white"
+                    android:onClick="mark"
                     android:background="@drawable/hash_1_border_left"
             />
 
@@ -33,7 +62,9 @@
                     android:id="@+id/btn1x2"
                     android:layout_width="wrap_content"
                     android:layout_height="40pt"
-                    android:onClick="btnClick"
+                    android:textSize="42sp"
+                    android:textColor="@color/white"
+                    android:onClick="mark"
                     android:background="@drawable/hash_1_border_center"
             />
 
@@ -41,7 +72,9 @@
                     android:id="@+id/btn1x3"
                     android:layout_width="wrap_content"
                     android:layout_height="40pt"
-                    android:onClick="btnClick"
+                    android:textSize="42sp"
+                    android:textColor="@color/white"
+                    android:onClick="mark"
                     android:background="@drawable/hash_1_border_right"
             />
         </TableRow>
@@ -55,7 +88,9 @@
                     android:id="@+id/btn2x1"
                     android:layout_width="wrap_content"
                     android:layout_height="40pt"
-                    android:onClick="btnClick"
+                    android:textSize="42sp"
+                    android:textColor="@color/white"
+                    android:onClick="mark"
                     android:background="@drawable/hash_2_border_left"
             />
 
@@ -63,7 +98,9 @@
                     android:id="@+id/btn2x2"
                     android:layout_width="wrap_content"
                     android:layout_height="40pt"
-                    android:onClick="btnClick"
+                    android:textSize="42sp"
+                    android:textColor="@color/white"
+                    android:onClick="mark"
                     android:background="@drawable/hash_2_border_center"
             />
 
@@ -71,7 +108,9 @@
                     android:id="@+id/btn2x3"
                     android:layout_width="wrap_content"
                     android:layout_height="40pt"
-                    android:onClick="btnClick"
+                    android:textSize="42sp"
+                    android:textColor="@color/white"
+                    android:onClick="mark"
                     android:background="@drawable/hash_2_border_right"
             />
         </TableRow>
@@ -85,7 +124,9 @@
                     android:id="@+id/btn3x1"
                     android:layout_width="wrap_content"
                     android:layout_height="40pt"
-                    android:onClick="btnClick"
+                    android:textSize="42sp"
+                    android:textColor="@color/white"
+                    android:onClick="mark"
                     android:background="@drawable/hash_3_border_left"
             />
 
@@ -93,7 +134,9 @@
                     android:id="@+id/btn3x2"
                     android:layout_width="wrap_content"
                     android:layout_height="40pt"
-                    android:onClick="btnClick"
+                    android:textSize="42sp"
+                    android:textColor="@color/white"
+                    android:onClick="mark"
                     android:background="@drawable/hash_3_border_center"
             />
 
@@ -101,7 +144,9 @@
                     android:id="@+id/btn3x3"
                     android:layout_width="wrap_content"
                     android:layout_height="40pt"
-                    android:onClick="btnClick"
+                    android:textSize="42sp"
+                    android:textColor="@color/white"
+                    android:onClick="mark"
                     android:background="@drawable/hash_3_border_right"
             />
 
